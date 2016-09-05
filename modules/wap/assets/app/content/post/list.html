@@ -1,0 +1,14 @@
+<!-- 新闻列表页  13行一屏-->
+<div class="main clr" data-ng-controller="PostController">
+	<!-- <div class="lySech clr">
+    	<input type="text"><button><img src="style/img/sBtn.png"></button>
+    </div> -->
+	
+	<article class="list-3" data-ng-repeat="post in posts">
+		<h2>
+			<a href="#/content/post/show?id={{post.PostID}}">{{post.Title}}</a>
+		</h2>
+	</article>
+	<p id="loading" style="text-align: center;">数据正在加载...</p>
+    <p id="overing">数据加载完毕...</p>
+</div>

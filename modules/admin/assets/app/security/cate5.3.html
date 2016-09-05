@@ -1,0 +1,18 @@
+<h2 class="catName">密码修改</h2>
+<div  data-ng-controller="SecurityController">
+
+	<!-- <article class="txtIn">
+		<span>用户名</span> <input type="text" class="txtS" data-ng-model="username"> <em>不可修改</em>
+	</article> -->
+	<article class="txtIn">
+		<span>原密码</span> <input type="text" class="txtS" data-ng-model="old_password"> <em>*</em>
+	</article>
+	<article class="txtIn">
+		<span>新密码</span> <input type="text" class="txtS" data-ng-model="password"> <em>*</em>
+	</article>
+	<article class="txtIn">
+		<span>新密码确认</span> <input type="text" class="txtS" data-ng-model="password_repeat"> <em>*</em>
+	</article>
+	<button data-ng-click="changePassword()">保存</button>
+	
+</div>

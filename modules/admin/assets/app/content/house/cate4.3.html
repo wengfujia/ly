@@ -1,0 +1,78 @@
+<div class="cms" data-ng-controller="RentController">
+
+	<h2 class="catName">楼宇资源（出租）&nbsp&nbsp&nbsp&nbsp<a href="" class="roomAdd" data-ng-click="loadNewForm()">新增</a></h2>
+
+	<div id="modal-edit-show" class="modal fade">
+		<div class="modal-dialog" style="width:700px">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h4 class="modal-title">出租信息</h4>
+				</div>
+				<div class="modal-body">
+					<article class="txtIn">
+						<span>房号</span> <input type="text" class="txtS" data-ng-disabled="!isEditItem" data-ng-model="roomnum">
+					</article>
+					<article class="txtIn">
+						<span>楼宇名称</span> <input type="text" class="txtS" data-ng-disabled="!isEditItem" data-ng-model="title"> <em>*</em>
+					</article>
+					<article class="txtIn">
+						<span>层数</span> <input type="text" class="txtS" data-ng-disabled="!isEditItem" data-ng-model="floorcount">
+					</article>			
+					<article class="txtIn">
+						<span>面积</span> <input type="text" class="txtS" data-ng-disabled="!isEditItem" data-ng-model="area">
+					</article>
+					<article class="txtIn">
+						<span>租金</span> <input type="text" class="txtS" data-ng-disabled="!isEditItem" data-ng-model="rent"> <em>*</em>
+					</article>
+					<article class="txtIn">
+						<span>物业费</span> <input type="text" class="txtS" data-ng-disabled="!isEditItem" data-ng-model="servicefee">
+					</article>
+					<article class="txtIn">
+						<span>联系电话</span> <input type="text" class="txtS" data-ng-disabled="!isEditItem" data-ng-model="linkphone"> <em>*</em>
+					</article>
+				</div>
+				<div class="modal-footer">
+					<input type="button" class="btn btn-success pull-left" title="保存" value="保存" data-ng-if="isEditItem" data-ng-click='save()' />
+					<input type="button" class="btn btn-default pull-right" title="取消" value="取消" data-dismiss="modal" data-ng-click='focusInput=false' />
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="shequ-info">
+		<table>
+			<tr>
+				<th>房号</th>
+				<th>楼宇名称</th>
+				<th>层数</th>
+				<th>面积</th>
+				<th>租金</th>
+				<th>物业费</th>
+				<th>联系电话</th>
+				<th>操作</th>
+			</tr>
+			<tr data-ng-repeat="item in pagedItems">
+				<td>{{item.content[1]}}</td>
+				<td>{{item.content[2]}}</td>
+				<td>{{item.content[3]}}</td>
+				<td>{{item.content[4]}}</td>
+				<td>{{item.content[5]}}</td>
+				<td>{{item.content[6]}}</td>
+				<td>{{item.content[7]}}</td>
+				<td>
+					<a href="" data-ng-click="loadEditForm(item.content[0], false)">详情</a>/
+					<a href="" data-ng-click="loadEditForm(item.content[0], true)">修改</a>/
+					<a href="" data-ng-click='del(item.content[0])'>删除</a>
+				</td>
+			</tr>
+		</table>
+	</div>
+	<div class="page">
+		<paging page="currentPage"
+			page-size="itemsPerPage"
+			total="recordCount"
+			show-prev-next="true"
+			paging-action="setPage(page)">
+	</div>
+
+</div>

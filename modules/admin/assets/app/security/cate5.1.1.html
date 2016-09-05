@@ -1,0 +1,27 @@
+<h2 class="catName">用户添加</h2>
+
+<div  data-ng-controller="SecurityController">
+
+	<article class="txtIn">
+		<span>真实用户</span> <input type="text" class="txtS" data-ng-model="nickname"> <em>*</em>
+	</article>
+	<article class="txtIn">
+		<span>用户名</span> <input type="text" class="txtS" data-ng-model="username"> <em>*</em>
+	</article>
+	<article class="txtIn">
+		<span>密码</span> <input type="text" class="txtS" data-ng-model="password"> <em>*</em>
+	</article>
+	<article class="txtIn">
+		<span>密码确认</span> <input type="text" class="txtS" data-ng-model="password_repeat"> <em>*</em>
+	</article>
+
+	<article class="txtIn">
+		<span>权限组</span> 
+		<select class="txtSelect" id="role">  
+			<option value="" selected="selected">请选择</option>
+			<option data-ng-repeat="role in roles" value="{{role.name}}">{{role.name}}</option>
+		</select>
+	</article>
+	<button data-ng-click="register()">保存</button>
+	
+</div>

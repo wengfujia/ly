@@ -1,0 +1,159 @@
+<h2 class="catName">房间管理 </h2>
+
+<div data-ng-controller="BuildingController">
+	
+	<!-- 显示楼层信息 -->
+	<div id="modal-floor-show" class="modal fade">
+		<div class="modal-dialog" style="width:60%">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h4 class="modal-title"><b>【{{buildingname}}】</b>楼层信息</h4>
+				</div>
+				<div class="modal-body">
+					<div class="shequ-info">
+						<table>
+							<tr>
+								<th>楼层号</th>
+								<th>单层面积</th>
+								<th>单层入住面积</th>
+								<th>单层空置面积</th>
+								<th>操作</th>
+							</tr>
+							<tr data-ng-repeat="item in floorItems">
+								<td>{{item.content[1]}}</td>
+								<td><a href="" data-ng-click="loadEditFloorForm(item.content[1])">{{item.content[2]}}</a></td>
+								<td>{{floorStatsItems[item.content[1]].content[2]}}</td>
+								<td>{{item.content[2]-floorStatsItems[item.content[1]].content[2]}}</td>
+								<td><a href="" data-ng-click="loadRoomForm(item.content[1])">详情</a></td>
+							</tr>
+						</table>
+					</div>
+				</div>
+				<div class="modal-footer">
+					<input type="button" class="btn btn-default pull-right" title="取消" value="取消" data-dismiss="modal" data-ng-click='focusInput=false' />
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<!-- 显示房间信息 -->
+	<div id="modal-room-show" class="modal fade">
+		<div class="modal-dialog" style="width:60%">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h4 class="modal-title"><b>【{{buildingname}}】【{{floornum}}层】</b>房间信息</h4>
+				</div>
+				<div class="modal-body">
+					<div class="shequ-info">
+						<table>
+							<tr>
+								<th>房间号</th>
+								<th>房间面积</th>
+								<th>房间状态</th>
+								<th>房间租金</th>
+								<th>房间装修方式</th>
+								<th>操作</th>
+							</tr>
+							<tr data-ng-repeat="item in roomItems">
+								<td>{{item.content[3]}}</td>
+								<td>{{item.content[4]}}</td>
+								<td>{{getStatusName(item.content[5])}}</td>
+								<td>{{item.content[6]}}</td>
+								<td>{{getRenovationName(item.content[7])}}</td>
+								<td>
+									<a href="" data-ng-click="loadEditRoomForm(item.content[2], false)">详情</a>/
+									<a href="" data-ng-click="loadEditRoomForm(item.content[2], true)">修改</a>/
+									<a href="" data-ng-click="delRoom(item.content[2])">删除</a>
+								</td>
+							</tr>
+						</table>
+					</div>
+				</div>
+				<div class="modal-footer">
+					<input type="button" class="btn btn-success pull-left" title="新增" value="新增" data-ng-click='loadAddRoomForm()' />
+					<input type="button" class="btn btn-default pull-right" title="取消" value="取消" data-dismiss="modal" data-ng-click='focusInput=false' />
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<div id="modal-editfloor-show" class="modal fade">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h4 class="modal-title">楼层修改</h4>
+				</div>
+				<div class="modal-body">
+					<span>楼层面积</span>
+					<input type="text" id="txtFloorArea" class="txtS">
+				</div>
+				<div class="modal-footer">
+					<input type="button" class="btn btn-success pull-left" title="保存" value="保存" data-ng-click='saveFloor()' />
+					<input type="button" class="btn btn-default pull-right" title="取消" value="取消" data-dismiss="modal" data-ng-click='focusInput=false' />
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<div id="modal-editroom-show" class="modal fade">
+		<div class="modal-dialog" style="width: 800px;">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h4 class="modal-title">房间信息</h4>
+				</div>
+				<div class="modal-body">			
+					<article class="txtIn">
+						<span>房间号</span> <input type="text" class="txtS" data-ng-disabled="!isEditItem" data-ng-model="roomnum"> <em>*</em>
+					</article>				
+					<article class="txtIn">
+						<span>房间面积（m<sup>2</sup>）
+						</span> <input type="text" class="txtS" data-ng-disabled="!isEditItem" data-ng-model="roomarea"> <em>*</em>
+					</article>				
+					<article class="txtIn">
+						<span>房间状态</span>
+						<select class="txtSelect" data-ng-disabled="!isEditItem" data-ng-model="roomstatus">
+							<option value="1">自住</option>
+							<option value="2">闲置</option>
+							<option value="3">出租</option>
+						</select>
+						<!-- <form>
+							<span>房间状态</span>
+							<label> 自住<input type="radio" checked="checked" name="roomState" /> 出租<input type="radio" name="roomState" /></label>
+							<label> 闲置<input type="radio" name="roomState" /></label>
+						</form> -->
+					</article>				
+					<article class="txtIn">
+						<span>租金价格（元/天/m<sup>2</sup>）
+						</span> <input type="text" class="txtS" data-ng-disabled="!isEditItem" data-ng-model="roomrent">
+					</article>				
+					<article class="txtIn">
+						<span>装修方式</span>
+						<select class="txtSelect" data-ng-disabled="!isEditItem" data-ng-model="roomrenovation">
+							<option value="1">精装</option>
+							<option value="2">简装</option>
+							<option value="3">毛坯</option>
+						</select>						
+						<!-- <form>
+							<span>装修方式</span>
+							<label> 精装<input type="radio" checked="checked" name="zhuangxiu" /></label>
+							<label> 简装<input type="radio" name="zhuangxiu" /></label>
+							<label> 毛坯<input type="radio" name="zhuangxiu" /></label>
+						</form> -->
+					</article>
+				</div>
+				<div class="modal-footer">
+					<input type="button" class="btn btn-success pull-left" title="保存" value="保存" data-ng-if="isEditItem" data-ng-click='saveRoom()' />
+					<input type="button" class="btn btn-default pull-right" title="取消" value="取消" data-dismiss="modal" data-ng-click='focusInput=false' />
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<div class="louyuName">
+		<ul>
+			<li data-ng-repeat="item in buildingItems"><a href="" data-ng-click="loadFloorForm(item.content[0])">{{item.content[1]}}</a></li>
+			<div class="clear"></div>
+		</ul>
+	</div>
+		
+</div>

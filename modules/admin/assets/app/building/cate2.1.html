@@ -1,0 +1,199 @@
+<!-- 楼宇管理 -->
+<h2 class="catName">楼宇添加</h2>
+<div data-ng-controller="BuildingController">
+	<div id="modal-map-show" class="modal fade">
+		<div class="modal-dialog" style="width:800px">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h4 class="modal-title">选择楼宇坐标</h4>
+				</div>
+				<div class="modal-body">
+					<div id="mapcontainer"></div>
+					<div id="maptip">
+						<span id="mapresult"></span>
+					</div>
+				</div>
+				<div class="modal-footer">
+					<input type="button" class="btn btn-default pull-right" title="关闭" value="关闭" data-dismiss="modal" data-ng-click='focusInput=false' />
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="qiye">
+		<article class="txtIn">
+			<span>楼宇名称</span> 
+			<input type="text" class="txtS" data-ng-model="buildingname"> <em>*</em>
+		</article>
+		<article class="txtIn">
+			<span>所属社区</span> 
+			<select class="txtSelect" data-ng-model="communityid">
+				<option value="0" selected="selected">请选择</option>
+				<option data-ng-repeat="item in communityItems" value="{{item.content[0]}}">{{item.content[1]}}</option>
+			</select><em>*</em>
+		</article>
+		<article class="txtIn">
+			<span>楼宇地址</span> 
+			<input type="text" class="txtS" data-ng-model="buildingaddress"> <em>*</em>
+		</article>
+		<article class="txtIn">
+			<span>楼宇地标</span> 
+			<input type="text" class="txtS" data-ng-disabled="true" data-ng-model="buildingpoint">
+			<a class="btn" data-ng-click="loadMapForm()">选择坐标点</a> <em>*</em>
+		</article>
+
+		<article class="txtIn">
+			<span>开发商名称</span> 
+			<input type="text" class="txtS" data-ng-model="developcompany"> <em>*</em>
+		</article>
+		<article class="txtIn">
+			<span>开发商联系人</span> 
+			<input type="text" class="txtS" data-ng-model="developname"> <em>*</em>
+		</article>
+		<article class="txtIn">
+			<span>开发商联系电话</span> 
+			<input type="text" class="txtS" data-ng-model="developphone"> <em>*</em>
+		</article>
+
+		<article class="txtIn">
+			<span>占地面积（m<sup>2</sup>）</span> 
+			<input type="text" class="txtS" data-ng-model="usedarea">
+		</article>
+		<article class="txtIn">
+			<span>建筑面积（m<sup>2</sup>）
+			</span> <input type="text" class="txtS" data-ng-model="buildarea">
+		</article>
+		<article class="txtIn">
+			<span>楼宇总高度（m）</span> 
+			<input type="text" class="txtS" data-ng-model="buildinghigh">
+		</article>
+		<article class="txtIn">
+			<span>楼宇层数（层）</span> 
+			<input type="text" class="txtS" data-ng-model="floorcout"> <em>*</em>
+		</article>
+		<article class="txtIn">
+			<span>楼宇单层高度（m）</span> 
+			<input type="text" class="txtS" data-ng-model="floorhigh">
+		</article>
+		<article class="txtIn">
+			<span>楼宇单层面积（m<sup>2</sup>） </span> 
+			<input type="text" class="txtS" data-ng-model="floorarea"> <em>*</em>
+		</article>
+
+		<article class="txtIn">
+			<span>楼层平面图</span>
+			<a class="btn" id="floorfiles">上传图片</a> 最大500KB，支持jpg，gif，png格式
+		</article>
+		<article class="imgArea" id="floorcontainer">		
+			<p id="floorimage"><img ng-if="floorimage>''" ng-src="{{floorimage}}"></p>
+			<p></p>
+			<!-- <pre id="console"></pre> -->
+		</article>
+		<br>
+		
+		<article class="txtIn">
+			<span>装修方式</span> 
+			<select class="txtSelect" data-ng-model="renovation">
+				<option value="0" selected="selected">请选择</option>
+				<option value="1">精装</option>
+				<option value="2">简装</option>
+				<option value="3">毛坯</option>
+			</select>
+		</article>
+		<article class="txtIn">
+			<span>租金价格（元/天/m<sup>2</sup>）</span> 
+			<input type="text" class="txtS" data-ng-model="rent">
+		</article>
+
+		<article class="txtIn">
+			<span>地上车位数（个）</span> 
+			<input type="text" class="txtS" data-ng-model="upcars">
+		</article>
+		<article class="txtIn">
+			<span>地下车位数（个）</span> 
+			<input type="text" class="txtS" data-ng-model="downcars">
+		</article>
+		
+		<h4 class="nextPage">下一页</h4>
+	</div>
+
+	<div class="qiye">
+		<article class="txtIn">
+			<span>物业公司名称</span> 
+			<input type="text" class="txtS" data-ng-model="servicescompany">
+		</article>
+		<article class="txtIn">
+			<span>物业联系人</span> 
+			<input type="text" class="txtS" data-ng-model="servicesname">
+		</article>
+		<article class="txtIn">
+			<span>物业联系电话</span> 
+			<input type="text" class="txtS" data-ng-model="servicesphone">
+		</article>
+		<article class="txtIn">
+			<span>物业资质</span> 
+			<input type="text" class="txtS" data-ng-model="servicesmemo">
+		</article>
+		<article class="txtIn">
+			<span>物业管理费价格（元/月/m<sup>2</sup>）</span> 
+			<input type="text" class="txtS" data-ng-model="servicesprice">
+		</article>
+
+		<article class="txtIn">
+			<span>业委会名称</span> 
+			<input type="text" class="txtS" data-ng-model="authoritycompany">
+		</article>
+		<article class="txtIn">
+			<span>业委会联系人</span> 
+			<input type="text" class="txtS" data-ng-model="authorityname">
+		</article>
+		<article class="txtIn">
+			<span>业委会联系电话</span> 
+			<input type="text" class="txtS" data-ng-model="authorityphone">
+		</article>
+
+		<article class="txtIn">
+			<span>楼宇简介</span> 
+			<textarea class="txtM" data-ng-model="buildingdescription"></textarea>
+		</article>
+		<article class="txtIn">
+			<span>楼宇配套设施情况</span>
+			<textarea class="txtM" data-ng-model="devicememo"></textarea>
+		</article>
+		<article class="txtIn">
+			<span>周边交通工具状况</span>
+			<textarea class="txtM" data-ng-model="trafficmemo"></textarea>
+		</article>
+		<article class="txtIn">
+			<span>其他需要说明事项</span>
+			<textarea class="txtM" data-ng-model="othermemo"></textarea>
+		</article>
+
+		<article class="txtIn">
+			<span>楼宇照片</span>
+			<a class="btn" id="buildingfiles">上传图片</a> 最大500KB，支持jpg，gif，png格式
+			<!-- <input type="file" class="txtF" data-ng-model="buildingphoto"> -->
+		</article>
+		<article class="imgArea" id="buildingcontainer">		
+			<p id="buildingimage"><img ng-if="buildingphoto>''" ng-src="{{buildingphoto}}"></p>
+			<p></p>
+			<!-- <pre id="console"></pre> -->
+		</article>
+		<br />
+		<h4 class="txtB" data-ng-click='save()'>保存</h4>
+	</div>
+
+</div>
+
+<script>
+	$(document).ready(function () {
+		
+		$('.qiye').eq(0).show().siblings('.qiye').hide();
+		$('.nextPage').click(function() {
+			var $wrap = $(this).parent('.qiye');
+			$wrap.hide().next().show();
+		});
+		
+	});
+</script>
+

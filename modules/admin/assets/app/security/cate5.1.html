@@ -1,0 +1,60 @@
+<div data-ng-controller="SecurityController">
+	<h2 class="catName">用户列表&nbsp&nbsp&nbsp&nbsp<a href="" class="roomAdd" data-ng-click="loadUserAddForm()">新建</a></h2>
+	
+	<div id="modal-edit-show" class="modal fade">
+		<div class="modal-dialog" style="width:700px">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h4 class="modal-title">社区信息修改</h4>
+				</div>
+				<div class="modal-body">
+					<article class="txtIn">
+						<span>真实用户</span> <input type="text" class="txtS" data-ng-model="nickname"> <em>*</em>
+					</article>
+					<article class="txtIn">
+						<span>用户名</span> <input type="text" class="txtS" data-ng-disabled="!isEditItem" data-ng-model="username"> <em>*</em>
+					</article>
+					<article class="txtIn" data-ng-if="isEditItem">
+						<span>密码</span> <input type="text" class="txtS" data-ng-model="password"> <em>*</em>
+					</article>
+					<article class="txtIn" data-ng-if="isEditItem">
+						<span>密码确认</span> <input type="text" class="txtS" data-ng-model="password_repeat"> <em>*</em>
+					</article>
+				
+					<article class="txtIn">
+						<span>权限组</span> 
+						<select class="txtSelect" id="role">  
+							<option value="" selected="selected">请选择</option>
+							<option data-ng-repeat="role in roles" value="{{role.name}}">{{role.name}}</option>
+						</select>
+					</article>
+		
+				</div>
+				<div class="modal-footer">
+					<input type="button" class="btn btn-success pull-left" title="保存" value="保存" data-ng-if="isEditItem" data-ng-click='saveUser()' />
+					<input type="button" class="btn btn-success pull-left" title="更新" value="更新" data-ng-if="!isEditItem" data-ng-click='updateUser()' />
+					<input type="button" class="btn btn-default pull-right" title="取消" value="取消" data-dismiss="modal" data-ng-click='focusInput=false' />
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="shequ-info">
+		<table>
+			<tr>
+				<th>用户名</th>
+				<th>所属权限</th>
+				<th>真实用户</th>
+				<th>操作</th>
+			</tr>
+			<tr data-ng-repeat="user in users">
+				<td>{{user.username}}</td>
+				<td>{{user.role}}</td>
+				<td>{{user.nickname}}</td>
+				<td><a href="" data-ng-click="loadUserEditForm(user.id)">修改</a>/<a href="" data-ng-click="delUser(user.id)">删除</a></td>
+			</tr>
+			
+		</table>
+	</div>
+	
+</div>

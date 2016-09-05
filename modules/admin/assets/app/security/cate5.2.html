@@ -1,0 +1,71 @@
+<div data-ng-controller="SecurityController">
+	<h2 class="catName">角色列表&nbsp&nbsp&nbsp&nbsp<a href="" class="roomAdd" data-ng-click="loadRoleAddForm()">新建</a></h2>
+
+	<div id="modal-edit-show" class="modal fade">
+		<div class="modal-dialog" style="width:700px">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h4 class="modal-title">权限编辑</h4>
+				</div>
+				<div class="modal-body">
+						<article class="txtIn">
+							<span>新建权限组名称</span> <input type="text" class="txtS" data-ng-model="securityTitle">
+						</article>
+						<article class="txtIn quanxian">
+							<span>社区管理</span> 
+							<label><input type="checkbox" name="power" value="AddCommunity" />添加社区</label> 
+							<label><input type="checkbox" name="power" value="EditCommunity" />修改社区信息</label> 
+							<label><input type="checkbox" name="power" value="ViewCommunities" />查看所有社区信息</label>
+							<label><input type="checkbox" name="power" value="ViewCommunityBuildings" />查看所属楼宇</label> 
+						</article>
+						<article class="txtIn quanxian">
+							<span>楼宇管理</span> 		
+							<label><input type="checkbox" name="power" value="AddBuilding" />添加楼宇</label> 
+							<label><input type="checkbox" name="power" value="EditBuilding" />修改楼宇</label>
+							<label><input type="checkbox" name="power" value="ViewBuildings" />查看所有楼宇信息</label> 
+							<label><input type="checkbox" name="power" value="ViewBuildingStats" />所属楼宇报表</label>
+						</article>
+						<article class="txtIn quanxian">
+							<span>企业管理</span> 		
+							<label><input type="checkbox" name="power" value="AddCompany" />企业入驻</label> 
+							<label><input type="checkbox" name="power" value="EditCompany" />企业修改</label> 
+							<label><input type="checkbox" name="power" value="LogoutCompany" />提交企业注销</label> 
+							<label><input type="checkbox" name="power" value="CheckLogoutCompany" />审核企业注销</label> 
+						</article>
+						<article class="txtIn quanxian">
+							<span>新闻管理</span> 		
+							<label><input type="checkbox" name="power" value="AddPost" />添加内容</label> 
+							<label><input type="checkbox" name="power" value="EditPost" />修改内容</label> 
+							<label><input type="checkbox" name="power" value="DeletePost" />删除内容</label>
+							<label><input type="checkbox" name="power" value="AddRent" />添加出租</label>
+							<label><input type="checkbox" name="power" value="AddSale" />添加出售</label>
+						</article>
+						<article class="txtIn quanxian">
+							<span>设置管理</span> 		
+							<label><input type="checkbox" name="power" value="ManageUser" />用户管理</label> 
+							<label><input type="checkbox" name="power" value="ManageRole" />权限管理</label> 
+						</article>
+		
+				</div>
+				<div class="modal-footer">
+					<input type="button" class="btn btn-success pull-left" title="保存" value="保存" data-ng-click='saveRole()' />
+					<input type="button" class="btn btn-default pull-right" title="取消" value="取消" data-dismiss="modal" data-ng-click='focusInput=false' />
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<div class="shequ-info">
+		<table>
+			<tr>
+				<th>权限组名</th>
+				<th>操作</th>
+			</tr>
+			<tr data-ng-repeat="role in roles">
+				<td>{{role.name}}</td>
+				<td><a href="" data-ng-click="loadRoleEditForm(role.name)">修改</a>/<a href="" data-ng-click="delRole(role.name)">删除</a></td>
+			</tr>			
+		</table>
+	</div>
+
+</div>

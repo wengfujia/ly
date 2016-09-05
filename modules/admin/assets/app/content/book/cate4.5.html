@@ -1,0 +1,58 @@
+<h2 class="catName">意见箱</h2>
+<div class="cms" data-ng-controller="BookController">
+
+	<div id="modal-show-form" class="modal fade">
+		<div class="modal-dialog" style="width:800px">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h4 class="modal-title">反馈详情</h4>
+				</div>
+				<div class="modal-body">
+					<article class="txtIn">
+						<span>标题</span><label>{{detail.title}}</label>
+					</article>
+					<article class="txtIn">
+						<span>联系人</span><label>{{detail.username}}</label>
+					</article>
+					<article class="txtIn">
+						<span>联系方式</span><label>{{detail.contact}}</label>
+					</article>
+					<article class="txtIn">
+						<span>详情</span><label>{{detail.content}}</label>
+					</article>
+				</div>
+				<div class="modal-footer">
+					<input type="button" class="btn btn-default pull-right" title="关闭" value="关闭" data-dismiss="modal" data-ng-click='focusInput=false' />
+				</div>
+			</div>
+		</div>
+	</div>
+    			
+	<div class="shequ-info">
+		<table>
+			<tr>
+				<th>时间</th>
+				<th>标题</th>
+				<th>详情</th>
+			</tr>
+			<tr data-ng-repeat="item in pagedItems[currentPage]">
+				<td>{{longToDate(item.datecreated, 1000)}}</td>
+				<td>{{item.title}}</td>
+				<td><a href='' data-ng-click="loadShowForm(item.id)">查看详情</a></td>
+			</tr>
+		</table>
+	</div>
+	<!-- <div class="page">
+		<a href="#">首页</a> <a href="#">上一页</a> <a href="#" class="active">1</a>
+		<a href="#">2</a> <a href="#">3</a> <a href="#">4</a> <a href="#">5</a>
+		<a href="#">下一页</a> <a href="#">尾页</a>
+	</div> -->
+	
+	<div class="page">
+		<ul class="pagination" data-ng-if="items.length > itemsPerPage">
+			<li data-ng-class="{disabled: currentPage == 0}"><a data-ng-click="prevPage()" title="{{lbl.prev}}"><i class="fa fa-angle-left"></i></a></li>
+			<li data-ng-repeat="n in range(pagedItems.length)" data-ng-class="{active: n == currentPage}" data-ng-click="setPage()"><a data-ng-bind="n + 1">1</a></li>
+			<li data-ng-class="{disabled: currentPage == pagedItems.length - 1}"><a data-ng-click="nextPage()" title="{{lbl.next}}"><i class="fa fa-angle-right"></i></a></li>
+		</ul>
+	</div>
+</div>

@@ -1,0 +1,188 @@
+<div data-ng-controller="CompanyController">
+	<h2 class="catName">企业注销信息 &nbsp&nbsp&nbsp&nbsp<a href="" class="roomAdd" data-ng-click="loadSearchForm()">查询</a></h2>
+	
+	<div id="modal-search-show" class="modal fade">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h4 class="modal-title">企业查询</h4>
+				</div>
+				<div class="modal-body">
+					<span>企业名称</span>
+					<input type="text" id="txtCompanyName" class="txtS">
+				</div>
+				<div class="modal-footer">
+					<input type="button" class="btn btn-success pull-left" title="查询" value="查询" data-ng-click='search()' />
+					<input type="button" class="btn btn-default pull-right" title="取消" value="取消" data-dismiss="modal" data-ng-click='focusInput=false' />
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<div id="modal-logout-show" class="modal fade">
+		<div class="modal-dialog" style="width:700px">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h4 class="modal-title"><b>【{{companyname}}】</b>企业注销</h4>
+				</div>
+				<div class="modal-body">
+					<article class="txtIn">
+						<span>注销时间</span> <input type="text" class="txtS" placeholder="默认当前时间" data-ng-disabled="!isEditItem" data-ng-model="datelogout">
+					</article>				
+					<article class="txtIn">
+						<span>注销原因</span>
+						<select class="txtSelect" data-ng-disabled="!isEditItem" data-ng-model="logoutreason">  
+							 <option value = "1">外迁</option>  
+							 <option value = "2">关停</option>  
+							 <option value = "3">其他</option>
+						</select>			
+						<!-- <form>
+							<span>注销原因</span>
+							<label> 外迁<input type="radio" checked="checked" name="zxReason" /></label>
+							<label> 关停<input type="radio" name="zxReason" /></label>
+							<label> 其他<input type="radio" name="zxReason" /></label>
+						</form> -->
+					</article>				
+					<article class="txtIn">
+						<span>注销后注册地址是否变更</span>
+						<select class="txtSelect" data-ng-disabled="!isEditItem" data-ng-model="ischangeaddress">  
+							 <option value = "1">变更</option>
+							 <option value = "0">不变</option>
+						</select>						
+						<!-- <form>
+							<span>注销后注册地址是否变更</span>
+							<label> 变更<input type="radio" checked="checked" name="zxAddressChange" /></label>
+							<label> 不变<input type="radio" name="zxAddressChange" /></label>
+						</form> -->
+					</article>			
+					<article class="txtIn">
+						<span>注销后新注册地</span> <input type="text" class="txtS" data-ng-disabled="!isEditItem" data-ng-model='newaddress'>
+					</article>			
+					<article class="txtIn">
+						<span>注销后联系人</span> <input type="text" class="txtS" data-ng-disabled="!isEditItem" data-ng-model='logoutlinkname'>
+					</article>			
+					<article class="txtIn">
+						<span>注销后联系电话</span> <input type="text" class="txtS" data-ng-disabled="!isEditItem" data-ng-model='logoutlinkphone'>
+					</article>			
+					<article class="txtIn">
+						<span>备注</span>
+						<textarea class="txtM" data-ng-disabled="!isEditItem" data-ng-model='logoutmemo'></textarea>
+					</article>
+					<hr>
+					<article class="txtIn">
+						<span>审核意见</span>
+						<textarea class="txtM" data-ng-disabled="true" data-ng-model='logoutchkdesc'></textarea>
+					</article>
+				</div>
+				<div class="modal-footer">
+					<input type="button" class="btn btn-success pull-left" title="保存" value="保存" data-ng-if="isEditItem" data-ng-click='saveLogout()' />
+					<input type="button" class="btn btn-default pull-right" title="取消" value="取消" data-dismiss="modal" data-ng-click='focusInput=false' />
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<!-- 企业注销审核 -->
+	<div id="modal-logoutcheck-show" class="modal fade">
+		<div class="modal-dialog" style="width:700px">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h4 class="modal-title"><b>【{{companyname}}】</b>企业注销审核</h4>
+				</div>
+				<div class="modal-body">
+					<article class="txtIn">
+						<span>注销时间</span> <input type="text" class="txtS" placeholder="默认当前时间" data-ng-disabled="true" data-ng-model="datelogout">
+					</article>				
+					<article class="txtIn">
+						<span>注销原因</span>
+						<select class="txtSelect" data-ng-disabled="true" data-ng-model="logoutreason">  
+							 <option value = "1">外迁</option>  
+							 <option value = "2">关停</option>  
+							 <option value = "3">其他</option>
+						</select>			
+					</article>				
+					<article class="txtIn">
+						<span>注销后注册地址是否变更</span>
+						<select class="txtSelect" data-ng-disabled="true" data-ng-model="ischangeaddress">  
+							 <option value = "1">变更</option>
+							 <option value = "0">不变</option>
+						</select>						
+					</article>			
+					<article class="txtIn">
+						<span>注销后新注册地</span> <input type="text" class="txtS" data-ng-disabled="true" data-ng-model='newaddress'>
+					</article>			
+					<article class="txtIn">
+						<span>注销后联系人</span> <input type="text" class="txtS" data-ng-disabled="true" data-ng-model='logoutlinkname'>
+					</article>			
+					<article class="txtIn">
+						<span>注销后联系电话</span> <input type="text" class="txtS" data-ng-disabled="true" data-ng-model='logoutlinkphone'>
+					</article>			
+					<article class="txtIn">
+						<span>备注</span>
+						<textarea class="txtM" data-ng-disabled="true" data-ng-model='logoutmemo'></textarea>
+					</article>
+				</div>
+				<div class="modal-footer">
+					<input type="button" class="btn btn-success pull-left" title="通过" value="通过" data-ng-click='savePass(1)' />
+					<input type="button" class="btn btn-danger pull-left" title="不通过" value="不通过" data-ng-click='loadUnpassForm()' />
+					<input type="button" class="btn btn-default pull-right" title="取消" value="取消" data-dismiss="modal" data-ng-click='focusInput=false' />
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- 未审核通过信息 -->
+	<div id="modal-unpass-show" class="modal fade">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h4 class="modal-title">审核信息</h4>
+				</div>
+				<div class="modal-body">
+					<span>审核内容</span>
+					<input type="text" id="txtUnpass" class="txtS">
+				</div>
+				<div class="modal-footer">
+					<input type="button" class="btn btn-success pull-left" title="保存" value="保存" data-ng-click='savePass(0)' />
+					<input type="button" class="btn btn-default pull-right" title="取消" value="取消" data-dismiss="modal" data-ng-click='focusInput=false' />
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<div class="shequ-info">
+		<table>
+			<tr>
+				<th>企业名称</th>
+				<th>入驻时间</th>
+				<th>入驻地址</th>
+				<th>联系电话</th>
+				<th>企业状态<br>（入驻/外迁/关停/其他）</th>
+				<th>注销状态</th>
+				<th>操作</th>
+			</tr>
+			<tr data-ng-repeat="item in pagedItems">
+				<td>{{item.content[1]}}</td>
+				<td>{{item.content[2]}}</td>
+				<td>{{item.content[3]}}</td>
+				<td>{{item.content[4]}}</td>
+				<td>{{getStatus(item.content[0])}}</td>
+				<td>{{getLogoutStatus(item.content[0])}}</td>
+				<td>
+					<a href="" data-ng-if="checkPermission('LogoutCompany') && getLogoutStatus(item.content[0])=='未通过' || getLogoutStatus(item.content[0])==''" data-ng-click="loadLogOutForm(item.content[0], true)">注销</a>
+					<a href="" data-ng-if="getLogoutStatus(item.content[0])=='已注销' || getLogoutStatus(item.content[0])=='审核中'" data-ng-click="loadLogOutForm(item.content[0], false)">查看</a>
+					<a href="" data-ng-if="checkPermission('CheckLogoutCompany') && getLogoutStatus(item.content[0])=='审核中'" data-ng-click="loadLogOutCheckForm(item.content[0])">审核</a>
+				</td>
+			</tr>
+			
+		</table>
+	</div>
+
+	<div class="page">
+		<paging page="currentPage"
+			page-size="itemPerPage"
+			total="recordCount"
+			show-prev-next="true"
+			paging-action="setPage(page)">
+	</div>
+
+</div>

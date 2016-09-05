@@ -1,0 +1,41 @@
+/*nav*/
+
+#navSide{
+	width:220px;
+	float: left;
+	background: #e7e7e7;
+	border-right: 1px solid #d8d8d8;
+	position: fixed;
+	left: 0;
+	top: 58px;
+}
+#navSide ul{
+	line-height: 50px;
+	text-indent: 2.4em;
+	li{
+		cursor: pointer;
+		span{
+			display: block;
+			width: 220px;
+			height: 50px;
+		}
+		a{
+			display: block;
+			width: 220px;
+			height: 50px;
+			&:hover{
+				background: #49c8e8;
+				color: #fff;
+			}
+		}
+	}
+	li ul{
+		border-bottom: 1px solid #d8d8d8;
+		border-top: 1px solid #d8d8d8;
+		background: #f5f5f5;
+	}
+}
+.active{
+	background: #49c8e8;
+		color: #fff;
+}

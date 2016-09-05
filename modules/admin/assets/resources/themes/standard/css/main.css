@@ -1,0 +1,367 @@
+/*reset*/
+
+body,
+div,
+ul,
+ol,
+li,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+th,
+td,
+img {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+img {
+    border: none;
+    vertical-align: top;
+}
+
+ul,
+li {
+    list-style: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-size: 100%;
+    font-weight: normal;
+    text-align: center;
+}
+
+input,
+textarea,
+select {
+    font-family: inherit;
+    font-size: inherit;
+    font-weight: inherit;
+    *font-size: 100%;
+}
+
+.clear {
+    clear: both;
+    height: 0;
+    line-height: 0;
+    font-size: 0;
+    font-size: 0;
+    overflow: hidden;
+}
+
+.clr {
+    zoom: 1;
+}
+
+.clr:after {
+    display: block;
+    clear: both;
+    height: 0;
+    content: "\0020";
+    overflow: hidden;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+a:hover {
+    color: #0789ab;
+}
+
+body {
+    font-family: "Microsoft YaHei";
+}
+
+
+/*header*/
+
+#header {
+    height: 55px;
+    border-bottom: 3px solid #d7d7d7;
+    /*width: 98%;*/
+    padding: 0 1%;
+    background: #0789ab;
+    overflow: hidden;
+}
+
+#header h1 {
+    color: #fff;
+    font-size: 26px;
+    width: 300px;
+    line-height: 56px;
+    float: left;
+    text-align: center;
+    text-shadow: 1px 1px #aaa;
+    letter-spacing: 2px;
+}
+
+#header span {
+    color: #fff;
+    font-size: 16px;
+    line-height: 60px;
+    float: right;
+    padding: 0 5px;
+}
+
+
+/*nav*/
+
+#navSide {
+    width: 220px;
+    float: left;
+    background: #e7e7e7;
+    border-right: 1px solid #d8d8d8;
+    position: fixed;
+    left: 0;
+    top: 58px;
+}
+
+#navSide ul {
+    line-height: 50px;
+    text-indent: 2.4em;
+}
+
+#navSide ul li {
+    cursor: pointer;
+}
+
+#navSide ul li span {
+    display: block;
+    width: 220px;
+    height: 50px;
+}
+
+#navSide ul li a {
+    display: block;
+    width: 220px;
+    height: 50px;
+}
+
+#navSide ul li a:hover {
+    background: #49c8e8;
+    color: #fff;
+}
+
+#navSide ul li ul {
+    border-bottom: 1px solid #d8d8d8;
+    border-top: 1px solid #d8d8d8;
+    background: #f5f5f5;
+}
+
+.active {
+    background: #49c8e8;
+    color: #fff;
+}
+
+
+/*wrap*/
+
+#show {
+    padding-left: 250px;
+}
+
+#show .louyuName {
+    width: 700px;
+    padding-top: 30px;
+    font-size: 20px;
+}
+
+#show .louyuName ul li {
+    width: 200px;
+    border: 1px solid #ddd;
+    height: 80px;
+    line-height: 80px;
+    float: left;
+    _display: inline;
+    text-align: center;
+    margin: 0 0 31px 31px;
+}
+
+#show .louyuName ul li a {
+    width: 100%;
+    height: 100%;
+}
+
+#show h2.catName {
+    font-size: 26px;
+    color: #0789ab;
+    line-height: 70px;
+    text-align: left;
+    text-shadow: 1px 1px #ccc;
+}
+
+#show h2.catName .roomAdd {
+    color: red;
+    font-size: 18px;
+}
+
+#show .qiye {
+    margin: 30px 0;
+    padding: 20px;
+    border: 1px solid #eee;
+    width: 800px;
+}
+
+#show .qiye h3 {
+    font-size: 24px;
+    color: #666;
+    line-height: 30px;
+    padding: 20px;
+}
+
+#show .qiye h4.nextPage {
+    cursor: pointer;
+    width: 70px;
+    height: 30px;
+    line-height: 30px;
+    margin: 0 auto;
+    border: 1px solid red;
+    color: red;
+}
+
+.shequ-info {
+    width: 80%;
+}
+
+.shequ-info table {
+    width: 100%;
+    text-align: center !important;
+    border-right: 1px solid #d8d8d8;
+    border-bottom: 1px solid #d8d8d8;
+}
+
+.shequ-info table tr {
+    height: 36px;
+    line-height: 36px;
+    background: #f9f9f9;
+}
+
+.shequ-info table tr td,
+.shequ-info table tr th {
+    border-left: 1px solid #d8d8d8;
+    border-top: 1px solid #d8d8d8;
+}
+
+.shequ-info table tr td a,
+.shequ-info table tr th a {
+    padding: 0 3px;
+}
+
+.shequ-info table tr:first-child {
+    background: #efefef;
+}
+
+.page {
+    width: 75%;
+    text-align: right;
+    padding: 10px 0;
+}
+
+.page a {
+    padding: 5px;
+}
+
+.imgArea {
+    padding: 0 0 20px 228px;
+    height: 150px;
+}
+
+.imgArea img {
+    display: block;
+    width: 200px;
+    height: 150px;
+}
+
+.txtIn {
+    margin-bottom: 15px;
+    font-size: 16px;
+}
+
+.txtIn span {
+    display: inline-block;
+    text-align: right;
+    padding-right: 10px;
+    width: 213px;
+}
+
+.txtIn em {
+    color: red;
+    font-weight: bold;
+}
+
+.quanxian {
+    width: 600px;
+    height: auto;
+    overflow: hidden;
+    line-height: 30px;
+    /*font-size: 20px;*/
+}
+
+.quanxian label {
+    display: block;
+    width: 370px;
+    float: right;
+}
+
+.txtS {
+    padding: 5px;
+    width: 400px;
+    border: 1px solid #d8d8d8;
+}
+
+.txtLogin {
+    padding: 1px 2px;
+    width: 100px;
+    border: 1px solid #d8d8d8;
+}
+
+.btnLogin {
+    background: red;
+    color: #fff;
+    border-radius: 3px;
+    border: none;
+    display: block;
+    margin-top: 14px;
+    width: 60px;
+    height: 30px;
+}
+
+.txtM {
+    resize: none;
+    padding: 5px;
+    border: 1px solid #d8d8d8;
+    width: 400px;
+}
+
+.txtB {
+    cursor: pointer;
+    width: 70px;
+    height: 30px;
+    line-height: 30px;
+    margin: 0 auto;
+    border: 1px solid red;
+    color: red;
+}
+
+.txtSelect {
+    width: 400px;
+    padding: 5px;
+    border: 1px solid #d8d8d8;
+}

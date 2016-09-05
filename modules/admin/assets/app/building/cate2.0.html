@@ -1,0 +1,213 @@
+<h2 class="catName">楼宇基本信息</h2>
+<div data-ng-controller="BuildingController">
+	
+	<!-- 楼宇信息修改窗体 -->
+	<div id="modal-edit-show" class="modal fade">
+		<div class="modal-dialog" style="width:700px">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h4 class="modal-title">楼宇信息修改</h4>
+				</div>
+				<div class="modal-body">
+					<article class="txtIn">
+						<span >楼宇名称</span> <input type="text" class="txtS" data-ng-disabled="true" data-ng-model="buildingname"> <em>*</em>
+					</article>
+					<article class="txtIn">
+						<span >所属社区</span> 
+						<select class="txtSelect" data-ng-disabled="!isEditItem" data-ng-model="communityid">
+							<option value="0" selected="selected">请选择</option>
+							<option data-ng-repeat="item in communityItems" value="{{item.content[0]}}">{{item.content[1]}}</option>
+						</select><em>*</em>
+					</article>
+					<article class="txtIn">
+						<span >楼宇地址</span> 						
+						<input type="text" class="txtS" data-ng-disabled="!isEditItem" data-ng-model="buildingaddress"> <em>*</em>
+					</article>
+					<article class="txtIn">
+						<span >楼宇地标</span> 
+						<input type="text" class="txtS" data-ng-disabled="true" data-ng-model="buildingpoint">
+						<a class="btn" data-ng-click="loadMapForm()">选择坐标点</a> <em>*</em>
+					</article>
+				
+					<article class="txtIn">
+						<span >开发商名称</span> <input type="text" class="txtS" data-ng-disabled="!isEditItem" data-ng-model="developcompany"> <em>*</em>
+					</article>
+					<article class="txtIn">
+						<span >开发商联系人</span> <input type="text" class="txtS" data-ng-disabled="!isEditItem" data-ng-model="developname"> <em>*</em>
+					</article>
+					<article class="txtIn">
+						<span >开发商联系电话</span> <input type="text" class="txtS" data-ng-disabled="!isEditItem" data-ng-model="developphone"> <em>*</em>
+					</article>
+				
+					<article class="txtIn">
+						<span >占地面积（m<sup>2</sup>）
+						</span> <input type="text" class="txtS" data-ng-disabled="!isEditItem" data-ng-model="usedarea">
+					</article>
+					<article class="txtIn">
+						<span >建筑面积（m<sup>2</sup>）
+						</span> <input type="text" class="txtS" data-ng-disabled="!isEditItem" data-ng-model="buildarea">
+					</article>
+					<article class="txtIn">
+						<span >楼宇总高度（m）</span> <input type="text" class="txtS" data-ng-disabled="!isEditItem" data-ng-model="buildinghigh">
+					</article>
+					<article class="txtIn">
+						<span >楼宇层数（层）</span> <input type="text" class="txtS" data-ng-disabled="true" data-ng-model="floorcout"> <em>*</em>
+					</article>
+					<article class="txtIn">
+						<span >楼宇单层高度（m）</span> <input type="text" class="txtS" data-ng-disabled="!isEditItem" data-ng-model="floorhigh">
+					</article>
+					<article class="txtIn">
+						<span >楼宇单层面积（m<sup>2</sup>）
+						</span> <input type="text" class="txtS" data-ng-disabled="true" data-ng-model="floorarea"> <em>*</em>
+					</article>
+					<article class="txtIn">
+						<span>楼层平面图</span>
+						<a class="btn" id="floorfiles">上传图片</a> 最大500KB，支持jpg，gif，png格式
+					</article>
+					<article class="imgArea" id="floorcontainer">		
+						<p id="floorimage"><img ng-if="floorimage>''" ng-src="{{floorimage}}"></p>
+						<p></p>
+						<!-- <pre id="console"></pre> -->
+					</article>
+					<br>
+		
+					<article class="txtIn">
+						<span >装修方式</span>
+						<select class="txtSelect" data-ng-disabled="!isEditItem" data-ng-model="renovation">  
+							 <option value = "0" selected="selected">请选择</option>  
+							 <option value = "1">精装</option>  
+							 <option value = "2">简装</option>  
+							 <option value = "3">毛坯</option>
+						</select>
+					</article>
+					<article class="txtIn">
+						<span >租金价格（元/天/m<sup>2</sup>） </span> <input type="text" class="txtS" data-ng-disabled="!isEditItem" data-ng-model="rent">
+					</article>
+					
+					<article class="txtIn">
+						<span >地上车位数（个）</span> <input type="text" class="txtS" data-ng-disabled="!isEditItem" data-ng-model="upcars">
+					</article>
+					<article class="txtIn">
+						<span >地下车位数（个）</span> <input type="text" class="txtS" data-ng-disabled="!isEditItem" data-ng-model="downcars">
+					</article>
+				
+					<article class="txtIn">
+						<span >物业公司名称</span> <input type="text" class="txtS" data-ng-disabled="!isEditItem" data-ng-model="servicescompany">
+					</article>
+					<article class="txtIn">
+						<span >物业联系人</span> <input type="text" class="txtS" data-ng-disabled="!isEditItem" data-ng-model="servicesname">
+					</article>
+					<article class="txtIn">
+						<span >物业联系电话</span> <input type="text" class="txtS" data-ng-disabled="!isEditItem" data-ng-model="servicesphone">
+					</article>
+					<article class="txtIn">
+						<span >物业资质</span> <input type="text" class="txtS" data-ng-disabled="!isEditItem" data-ng-model="servicesmemo">
+					</article>
+					<article class="txtIn">
+						<span >物业管理费价格（元/月/m<sup>2</sup>）</span> <input type="text" class="txtS" data-ng-disabled="!isEditItem" data-ng-model="servicesprice">
+					</article>
+				
+					<article class="txtIn">
+						<span >业委会名称</span> <input type="text" class="txtS" data-ng-disabled="!isEditItem" data-ng-model="authoritycompany">
+					</article>
+					<article class="txtIn">
+						<span>业委会联系人</span> <input type="text" class="txtS" data-ng-disabled="!isEditItem" data-ng-model="authorityname">
+					</article>
+					<article class="txtIn">
+						<span >业委会联系电话</span> <input type="text" class="txtS" data-ng-disabled="!isEditItem" data-ng-model="authorityphone">
+					</article>
+				
+					<article class="txtIn">
+						<span>楼宇简介</span> 
+						<textarea class="txtM" data-ng-model="buildingdescription"></textarea>
+					</article>
+					<article class="txtIn">
+						<span>楼宇配套设施情况</span>
+						<textarea class="txtM" data-ng-model="devicememo"></textarea>
+					</article>
+					<article class="txtIn">
+						<span>周边交通工具状况</span>
+						<textarea class="txtM" data-ng-model="trafficmemo"></textarea>
+					</article>
+					<article class="txtIn">
+						<span>其他需要说明事项</span>
+						<textarea class="txtM" data-ng-model="othermemo"></textarea>
+					</article>
+			
+					<article class="txtIn">
+						<span>楼宇照片</span>
+						<a class="btn" id="buildingfiles">上传图片</a> 最大500KB，支持jpg，gif，png格式
+						<!-- <input type="file" class="txtF" data-ng-model="buildingphoto"> -->
+					</article>
+					<article class="imgArea" id="buildingcontainer">		
+						<p id="buildingimage"><img ng-if="buildingphoto>''" ng-src="{{buildingphoto}}"></p>
+						<p></p>
+						<!-- <pre id="console"></pre> -->
+					</article>
+					<br />
+		
+				</div>
+				<div class="modal-footer">
+					<input type="button" class="btn btn-success pull-left" title="保存" value="保存" data-ng-if="isEditItem" data-ng-click='save()' />
+					<input type="button" class="btn btn-default pull-right" title="取消" value="取消" data-dismiss="modal" data-ng-click='focusInput=false' />
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<div id="modal-map-show" class="modal fade">
+		<div class="modal-dialog" style="width:800px">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h4 class="modal-title">选择楼宇坐标</h4>
+				</div>
+				<div class="modal-body">
+					<div id="mapcontainer"></div>
+					<div id="maptip">
+						<span id="mapresult"></span>
+					</div>
+				</div>
+				<div class="modal-footer">
+					<input type="button" class="btn btn-default pull-right" title="关闭" value="关闭" data-dismiss="modal" data-ng-click='focusInput=false' />
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<!-- 楼宇管理 -->
+	<div class="shequ-info">
+		<table>
+			<tr>
+				<th>楼宇名称</th>
+				<th>所属社区</th>
+				<th>楼宇总层数</th>
+				<th>楼宇面积</th>
+				<th>入住企业数</th>
+				<th>入住面积</th>
+				<th>空置率</th>
+				<th>操作</th>
+			</tr>
+			<tr data-ng-repeat="item in pagedItems">
+				<td>{{item.content[1]}}</td>
+				<td>{{getCommunityName(item.content[2])}}</td>
+				<td>{{item.content[3]}}</td>
+				<td>{{item.content[5]}}</td>
+				<td>{{settledStatsItems[item.content[0]].content[1]}}</td>
+				<td>{{settledStatsItems[item.content[0]].content[2]}}</td>
+				<td>{{calcVacancyRate(item.content[5], settledStatsItems[item.content[0]].content[2])}}%</td> <!-- calcArea(item.content[3],item.content[4]) -->
+				<td><a href="" data-ng-click="loadEditForm(item.content[0], false)">详情</a>/
+				<a href="" data-ng-if="checkPermission('EditBuilding')" data-ng-click="loadEditForm(item.content[0], true)">修改</a>/
+				<a href="" data-ng-if="checkPermission('EditBuilding')" data-ng-click='del(item.content[0])'>删除</a></td>
+			</tr>			
+		</table>
+	</div>
+
+	<div class="page">
+		<paging page="currentPage"
+			page-size="itemsPerPage"
+			total="recordCount"
+			show-prev-next="true"
+			paging-action="setPage(page)">
+	</div>
+
+</div>

@@ -1,0 +1,170 @@
+.cateLouyu{
+	width: 1000px;
+	margin: 0 auto;
+	padding-bottom: 30px;
+	.title{
+		@include divFullSize(auto);
+	}
+	.cateLogo{
+		@include divFullSize(386px);
+	}
+	.shequNav{
+		@include divFullSize(42px);
+		border-top: 1px solid #fff;
+		letter-spacing: 1px;
+		line-height: 46px;
+		a{
+			color: #fff;
+			&.backToIndex{
+				@include fl();
+				font-size: 14px;
+				font-weight: bold;
+				padding-left: 1em;
+			}
+		}
+		p{
+			text-align: right;
+			padding: 0 20px;
+			color: #fff;
+			font-weight: bold;
+			a{
+				font-weight: normal;
+			}
+		}
+	}
+	.newsWrap{
+		@include divFullSize(760px);
+		padding: 20px 0;
+		background: #fff;
+		.shequPics{
+			@include fl();
+			@include ml(20px);
+			width: 650px;
+			height: 486px;
+			margin-bottom: 20px;
+			background: #fafafa;
+			#SQmyFocus{
+				@include divFullSize(100%);
+			}
+		}
+		.shequNews{
+			@include fl();
+			@include ml(20px);
+			width: 290px;
+			height: 486px;
+			margin-bottom: 20px;
+			background: #e5effc;
+			.title{
+				height: 45px;
+				letter-spacing: 1px;
+				color: #fff;
+				font-weight: bold;
+				line-height: 50px;
+				text-indent: 1em;
+				font-size: 14px;
+			}
+			ul{
+				padding: 10px;
+				li{
+					height: 26px;
+					line-height: 26px;
+					background: url(img/list_block.gif) 0 13px no-repeat;
+					padding-left: 7px;
+					overflow: hidden;
+				}
+			}
+			.more{
+				@include fr();
+				padding: 0 10px 0 0;
+			}
+		}
+		.shequInfo{
+			@include fl();
+			@include ml(20px);
+			width: 960px;
+			height: 253px;
+			background: #fdfbf2;
+			.title{
+				@include divFullSize(62px);
+				margin-bottom: 22px;
+			}
+			.infoCon{
+				margin: 0 36px 0 20px;
+				@include fl();
+				width: 630px;
+				height: 136px;
+				line-height: 28px;
+			}
+			a{
+				img{
+					@include fl();
+					display: block;
+					margin-bottom: 10px;
+				}
+			}
+		}
+	}
+	.shequBelongs{
+		@include divFullSize(240px);
+		background: #fdfbf2;
+		ul{
+			li{
+				@include picBlock(200px);
+			}
+		}
+		.picMarquee-left{overflow:hidden;position:relative;}
+		.picMarquee-left .prev,.picMarquee-left .next{ display:block;width:35px;height:44px; top: 98px; position:absolute;overflow:hidden;cursor:pointer; }
+		.picMarquee-left .prev{ background:url(img/next.png) no-repeat;right:10px;}
+		.picMarquee-left .next{ background:url(img/prev.png) no-repeat;left:10px;}
+
+		.picMarquee-left .bd{width:880px;overflow:hidden; _position:relative;_z-index:-99; margin: 0 auto; height: 150px; padding-top: 45px;}
+		
+
+
+	}
+	.shequCity{
+		@include divFullSize(auto);
+		background: #fdfbf2;
+		margin-bottom: 20px;
+		img{
+			display: block;
+			width: 960px;
+			height: 80px;
+			margin: 20px;
+		}
+	}
+	.shequContact{
+		@include divFullSize(63px);
+		overflow: inherit;
+		position: relative;
+		background: #fff4aa;
+		.noth{
+			width: 83px;
+			height: 70px;
+			overflow: hidden;
+			position: absolute;
+			top: 0px;
+		}
+		.info{
+			width: 160px;
+			padding-left: 100px;
+			@include fl();
+			padding-top: 12px;
+			line-height: 20px;
+			span{
+				font-size: 14px;
+				font-weight: bold;
+				color: #01565b;
+			}
+		}
+	}
+}
+.ly_footer{
+	@include divFullSize(90px);
+	padding: 20px 0;
+	text-align: center;
+	color: #fff;
+	p{
+		font: 14px/2 "Microsoft YaHei"; 
+	}
+}

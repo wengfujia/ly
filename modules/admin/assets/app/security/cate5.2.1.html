@@ -1,0 +1,43 @@
+<h2 class="catName">权限组管理</h2>
+<div data-ng-controller="SecurityController">
+	
+	<article class="txtIn">
+		<span>新建权限组名称</span> <input type="text" class="txtS" data-ng-model="securityTitle">
+	</article>
+	<article class="txtIn quanxian">
+		<span>社区管理</span> 
+		<label><input type="checkbox" name="power" value="AddCommunity" />添加社区</label> 
+		<label><input type="checkbox" name="power" value="EditCommunity" />修改社区信息</label> 
+		<label><input type="checkbox" name="power" value="ViewCommunities" />查看所有社区信息</label>
+		<label><input type="checkbox" name="power" value="ViewCommunityBuildings" />查看所属楼宇</label> 
+	</article>
+	<article class="txtIn quanxian">
+		<span>楼宇管理</span> 		
+		<label><input type="checkbox" name="power" value="AddBuilding" />添加楼宇</label> 
+		<label><input type="checkbox" name="power" value="EditBuilding" />修改楼宇</label>
+		<label><input type="checkbox" name="power" value="ViewBuildings" />查看所有楼宇信息</label> 
+		<label><input type="checkbox" name="power" value="ViewBuildingStats" />所属楼宇报表</label>
+	</article>
+	<article class="txtIn quanxian">
+		<span>企业管理</span> 		
+		<label><input type="checkbox" name="power" value="AddCompany" />企业入驻</label> 
+		<label><input type="checkbox" name="power" value="EditCompany" />企业修改</label> 
+		<label><input type="checkbox" name="power" value="LogoutCompany" />提交企业注销</label> 
+		<label><input type="checkbox" name="power" value="CheckLogoutCompany" />审核企业注销</label> 
+	</article>
+	<article class="txtIn quanxian">
+		<span>新闻管理</span> 		
+		<label><input type="checkbox" name="power" value="AddPost" />添加内容</label> 
+		<label><input type="checkbox" name="power" value="EditPost" />修改内容</label> 
+		<label><input type="checkbox" name="power" value="DeletePost" />删除内容</label>
+		<label><input type="checkbox" name="power" value="AddRent" />添加出租</label>
+		<label><input type="checkbox" name="power" value="AddSale" />添加出售</label>
+	</article>
+	<article class="txtIn quanxian">
+		<span>设置管理</span> 		
+		<label><input type="checkbox" name="power" value="ManageUser" />用户管理</label> 
+		<label><input type="checkbox" name="power" value="ManageRole" />权限管理</label> 
+	</article>
+	<button data-ng-click="saveRole()">保存</button>
+	
+</div>

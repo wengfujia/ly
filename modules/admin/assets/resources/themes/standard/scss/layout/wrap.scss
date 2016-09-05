@@ -1,0 +1,152 @@
+/*wrap*/
+
+#show{
+	padding-left: 250px;
+	h2.catName{
+	font-size: 26px;
+	color: #0789ab;
+	line-height: 70px;
+	text-align: left;
+	text-shadow: 1px 1px #ccc;
+	.roomAdd{
+			color: red;
+			font-size: 18px;
+	}
+	}
+	.qiye{
+		margin: 30px 0;
+		padding: 20px;
+		border: 1px solid #eee;
+		width: 800px;
+		h3{
+			font-size: 24px;
+			color: #666;
+			line-height: 30px;
+			padding: 20px;
+		}
+		h4.nextPage{
+			cursor: pointer;
+			width: 70px;
+			height: 30px;
+			line-height: 30px;
+			margin: 0 auto;
+			border: 1px solid red;
+			color: red;
+		}
+	}
+}
+.shequ-info{
+	width: 80%;
+	table{
+		width: 100%;
+		text-align: center;
+		border-right: 1px solid #d8d8d8;
+		border-bottom: 1px solid #d8d8d8;
+	}
+	table tr{
+		height: 36px;
+		line-height: 36px;
+		background: #f9f9f9;
+		td,th{
+			border-left: 1px solid #d8d8d8;
+			border-top: 1px solid #d8d8d8;
+			a{
+				padding:0 3px;
+			}
+		}
+	}
+	table tr:first-child{
+		background: #efefef;
+	}
+}
+.page{
+	width:75%;
+	text-align: right;
+	padding:10px 0;
+	a{
+		padding: 5px;
+	}
+}
+.imgArea{
+	padding: 0 0 20px 228px;
+	height: 150px;
+	img{
+		display: block;
+		width: 200px;
+		height: 150px;
+	}
+}
+.txtIn{
+	margin-bottom: 15px;
+	font-size: 16px;
+	span{
+		display: inline-block;
+		text-align: right;
+		padding-right: 10px;
+		width: 213px;
+	}
+	em{
+		color: red;
+		font-weight: bold;
+	}
+}
+	.quanxian{
+		width: 600px;
+		height: auto;
+		overflow: hidden;
+		line-height: 30px;
+			font-size: 20px;
+		label{
+			display: block;
+			width: 370px;
+			
+			float: right;
+		}
+	}
+	.txtS{
+		padding: 5px;
+		width: 400px;
+		border: 1px solid #d8d8d8;
+	}
+	.txtLogin{
+		padding: 1px 2px;
+		width: 100px;
+		border: 1px solid #d8d8d8;
+	}
+	.btnLogin{
+		background: red;
+		color: #fff;
+		border-radius:3px;
+		border: none;
+		display: block;
+		margin-top: 14px;
+		width: 60px;
+		height: 30px;
+	}
+	.txtM{
+		resize: none;
+		padding: 5px;
+		border: 1px solid #d8d8d8;
+		width: 400px;
+	}
+	.txtB{
+		cursor: pointer;
+		width: 70px;
+		height: 30px;
+		line-height: 30px;
+		margin: 0 auto;
+		border: 1px solid red;
+		color: red;
+	}
+	.txtSelect{
+		width: 400px;
+		padding: 5px;
+		border: 1px solid #d8d8d8;
+		box-sizing: content-box;
+		// appearance:none;
+		// -moz-appearance:none;
+		// -webkit-appearance:none;
+		// background: url(arrow.png) no-repeat scroll right center transparent;
+		// padding-right: 14px;
+	}
+		// select::-ms-expand { display: none; }

@@ -1,0 +1,84 @@
+<h2 class="catName">社区基本信息</h2>
+<div data-ng-controller="CommunityController">
+
+	<div id="modal-edit-show" class="modal fade">
+		<div class="modal-dialog" style="width:700px">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h4 class="modal-title">社区信息修改</h4>
+				</div>
+				<div class="modal-body">
+					<article class="txtIn">
+						<span>社区名称</span> <input type="text" class="txtS" data-ng-disabled="!isEditItem" data-ng-model="name"> <em>*</em>
+					</article>	
+					<article class="txtIn">
+						<span>社区代码</span> <input type="text" class="txtS" data-ng-disabled="!isEditItem" data-ng-model="code"> <em>*</em>
+					</article>			
+					<article class="txtIn">
+						<span>联系人</span> <input type="text" class="txtS" data-ng-disabled="!isEditItem" data-ng-model="linkname"> <em>*</em>
+					</article>		
+					<article class="txtIn">
+						<span>联系电话</span> <input type="text" class="txtS" data-ng-disabled="!isEditItem" data-ng-model="linkphone"> <em>*</em>
+					</article>	
+					<article class="txtIn">
+						<span>手机</span> <input type="text" class="txtS" data-ng-disabled="!isEditItem" data-ng-model="mobile">
+					</article>	
+					<article class="txtIn">
+						<span>地址</span> <input type="text" class="txtS" data-ng-disabled="!isEditItem" data-ng-model="address"> <em>*</em>
+					</article>		
+					<article class="txtIn">
+						<span>社区介绍</span> <input type="text" class="txtS" data-ng-disabled="!isEditItem" data-ng-model="desc">
+					</article>	
+
+					<article class="txtIn">
+						<span>社区照片</span>
+						<a class="btn" id="browfiles">上传图片</a> 最大500KB，支持jpg，gif，png格式
+						<!-- <input type="file" class="txtF" accept="image/*" id="hidden_input"> -->
+					</article>
+					<article class="imgArea" id="container">
+						<p id="imgArea"><img ng-if="photopath>''" ng-src="{{photopath}}"></p>
+						<p></p>
+						<!-- <pre id="console"></pre> -->
+					</article>
+		
+				</div>
+				<div class="modal-footer">
+					<input type="button" class="btn btn-success pull-left" title="保存" value="保存" data-ng-if="isEditItem" data-ng-click='save()' />
+					<input type="button" class="btn btn-default pull-right" title="取消" value="取消" data-dismiss="modal" data-ng-click='focusInput=false' />
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="shequ-info">
+		<table>
+			<tr>
+				<th>社区名称</th>
+				<th>社区代码</th>
+				<th>联系人</th>
+				<th>联系电话</th>
+				<th>操作</th>
+			</tr>
+			<tr data-ng-repeat="item in pagedItems">
+				<td>{{item.content[1]}}</td>
+				<td>{{item.content[2]}}</td>
+				<td>{{item.content[3]}}</td>
+				<td>{{item.content[4]}}</td>
+				<td>
+					<a href="" data-ng-click="loadEditForm(item.content[0], false)">详情</a>/
+					<a href="" data-ng-if="checkPermission('EditCommunity')" data-ng-click="loadEditForm(item.content[0], true)">修改</a>/
+					<a href="" data-ng-if="checkPermission('EditCommunity')" data-ng-click='del(item.content[0])'>删除</a>
+				</td>
+			</tr>			
+		</table>
+	</div>
+	
+	<div class="page">
+		<paging page="currentPage"
+			page-size="itemsPerPage"
+			total="recordCount"
+			show-prev-next="true"
+			paging-action="setPage(page)">
+	</div>
+</div>
+

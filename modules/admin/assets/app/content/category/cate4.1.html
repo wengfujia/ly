@@ -1,0 +1,48 @@
+<div class="cms" data-ng-controller="CategoryController">
+	<h2 class="catName">栏目管理&nbsp&nbsp&nbsp&nbsp<a href="" class="roomAdd" data-ng-click="loadNewForm()">新增分类</a></h2>
+	<div id="modal-edit-show" class="modal fade">
+		<div class="modal-dialog" style="width:800px">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h4 class="modal-title">栏目管理</h4>
+				</div>
+				<div class="modal-body">
+					<article class="txtIn">
+						<span>栏目名称</span> <input type="text" class="txtS" data-ng-disabled="!isEditItem" data-ng-model="detail.CategoryName"> <em>*</em>
+					</article>
+					<article class="txtIn">
+						<span>描述</span> <input type="text" class="txtS" data-ng-disabled="!isEditItem" data-ng-model="detail.Description">
+					</article>
+				</div>
+				<div class="modal-footer">
+					<input type="button" class="btn btn-success pull-left" title="保存" value="保存" data-ng-if="isEditItem" data-ng-click='save()' />
+					<input type="button" class="btn btn-default pull-right" title="关闭" value="关闭" data-dismiss="modal" data-ng-click='focusInput=false' />
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<div class="shequ-info">
+		<table>
+			<tr>
+				<th>栏目名称</th>
+				<th>操作</th>
+			</tr>
+			<tr data-ng-repeat="item in items">
+				<td>{{item.CategoryName}}</td>
+				<td>
+					<a href="" data-ng-click="loadEditForm(item.CategoryID,true)">修改</a>/
+					<a href="" data-ng-click="del(item.CategoryID)">删除</a>
+				</td>
+			</tr>			
+		</table>
+	</div>
+	<!-- <div class="page">
+		<paging page="currentPage"
+			page-size="itemsPerPage"
+			total="recordCount"
+			show-prev-next="true"
+			paging-action="setPage(page)">
+	</div> -->
+
+</div>

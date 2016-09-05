@@ -1,0 +1,204 @@
+<h2 class="catName">企业入驻</h2>
+<div data-ng-controller="CompanyController">
+
+	<div class="qiye">
+		<h3>企业基本信息</h3>
+		<article class="txtIn">
+			<span>企业名称</span> <input type="text" class="txtS" data-ng-model="companyname"> <em>*</em>
+		</article>
+		<article class="txtIn">
+			<span>企业是否注册</span>
+			<select class="txtSelect" data-ng-model="companyregstatus">  
+				 <option value = "0" selected="selected">请选择</option>  
+				 <option value = "1">属地注册</option>  
+				 <option value = "2">非属地注册</option>  
+				 <option value = "3">尚未注册</option>
+				 <option value = "4">不注册</option>
+			</select>
+			<!-- <form>
+				<span>企业是否注册</span>
+				<label> 属地注册<input type="radio" checked="checked"name="corpState" /></label>
+				<label> 非属地注册<input type="radio" name="corpState" /></label>
+				<label> 尚未注册<input type="radio" name="corpState" /></label>
+				<label> 不注册<input type="radio" name="corpState" /></label> <em style="padding-left: 7px;">*</em>
+			</form> -->
+		</article>
+		<article class="txtIn">
+			<span>注册资金（万元）</span> <input type="text" class="txtS" data-ng-model="companyregcapital">
+		</article>
+		<article class="txtIn">
+			<span>注册法人</span> <input type="text" class="txtS" data-ng-model="injectionname"> <em>*</em>
+		</article>
+		<article class="txtIn">
+			<span>法人身份证号</span> <input type="text" class="txtS" data-ng-model="injectionpeoplecode"> <em>*</em>
+		</article>
+		<article class="txtIn">
+			<span>单位性质</span> <input type="text" class="txtS" data-ng-model="companynature"> <em>*</em>
+		</article>
+		<article class="txtIn">
+			<span>企业注册号</span> <input type="text" class="txtS" data-ng-model="companyregnum">
+		</article>
+		<article class="txtIn">
+			<span>五证合一号</span> <input type="text" class="txtS" data-ng-model="companymergenum">
+		</article>
+		<article class="txtIn">
+			<span>规上企业</span>
+			<select class="txtSelect" data-ng-model="companyisscale">  
+				 <option value = "0" selected="selected">否</option>  
+				 <option value = "1">是</option>
+			</select>
+			<!-- <form>
+				<span>规上企业</span>
+				<label> 是<input type="radio" checked="checked" name="corpGS" /></label>
+				<label> 否<input type="radio" name="corpGS" /><em>*</em></label>
+			</form> -->
+		</article>
+		<h4 class='nextPage'>下一页</h4>
+	</div>
+
+	<div class="qiye">
+		<h3>经营信息</h3>
+		<article class="txtIn">
+			<span>主营业务</span> <input type="text" class="txtS" data-ng-model="companymainbusiness">
+		</article>
+		<article class="txtIn">
+			<span>行业类别</span> <input type="text" class="txtS" data-ng-model="companyindustry">
+		</article>
+		<article class="txtIn">
+			<span>经营形式</span> <input type="text" class="txtS" data-ng-model="companyoperationform">
+		</article>
+		<article class="txtIn">
+			<span>经营状态</span> <input type="text" class="txtS" data-ng-model="companyoperationstatus">
+		</article>
+		<article class="txtIn">
+			<span>销售额（或营业额）（万元）</span> <input type="text" class="txtS" data-ng-model="companysales">
+		</article>
+		<article class="txtIn">
+			<span>企业上年税收（万元）</span> <input type="text" class="txtS" data-ng-model="companylastyeartax">
+		</article>
+		<article class="txtIn">
+			<span>增加值</span> <input type="text" class="txtS" data-ng-model="companyincrements">
+		</article>
+		<article class="txtIn">
+			<span>招商引资</span>
+			<select class="txtSelect" data-ng-model="companyinvestment">  
+				 <option value = "1" selected="selected">外资</option>  
+				 <option value = "2">内资</option>
+			</select>
+			<!-- <form>
+				<span>招商引资</span>
+				<label> 外资<input type="radio" checked="checked" name="zhaoshang" /></label>
+				<label> 内资<input type="radio" name="zhaoshang" /></label>
+			</form> -->
+		</article>
+		<h4 class='nextPage'>下一页</h4>
+	</div>
+
+	<div class="qiye">
+		<h3>企业人事</h3>
+		<article class="txtIn">
+			<span>法人姓名</span> <input type="text" class="txtS" data-ng-model="injectionname"> <em>*</em>
+		</article>
+		<article class="txtIn">
+			<span>法人联系电话</span> <input type="text" class="txtS" data-ng-model="injectionphone"> <em>*</em>
+		</article>
+		<article class="txtIn">
+			<span>法人传真</span> <input type="text" class="txtS" data-ng-model="injectiontax">
+		</article>
+		<article class="txtIn">
+			<span>行政负责人</span> <input type="text" class="txtS" data-ng-model="managername"> <em>*</em>
+		</article>
+		<article class="txtIn">
+			<span>行政联系电话</span> <input type="text" class="txtS" data-ng-model="managerphone"> <em>*</em>
+		</article>
+		<article class="txtIn">
+			<span>行政QQ</span> <input type="text" class="txtS" data-ng-model="managerqq">
+		</article>
+		<article class="txtIn">
+			<span>财务姓名</span> <input type="text" class="txtS" data-ng-model="financername"> <em>*</em>
+		</article>
+		<article class="txtIn">
+			<span>财务联系电话</span> <input type="text" class="txtS" data-ng-model="financerphone"> <em>*</em>
+		</article>
+		<article class="txtIn">
+			<span>财务QQ</span> <input type="text" class="txtS" data-ng-model="financerqq">
+		</article>
+		<article class="txtIn">
+			<span>员工总数</span> <input type="text" class="txtS" data-ng-model="employees">
+		</article>
+		<article class="txtIn">
+			<span>女职工数</span> <input type="text" class="txtS" data-ng-model="womens">
+		</article>
+		<article class="txtIn">
+			<span>青年职工数（28周岁以下）</span> <input type="text" class="txtS" data-ng-model="yongers">
+		</article>
+		<article class="txtIn">
+			<span>海归、港澳台人员</span> <input type="text" class="txtS" data-ng-model="minds">
+		</article>
+		<article class="txtIn">
+			<span>党员数</span> <input type="text" class="txtS" data-ng-model="partymembers">
+		</article>
+		<article class="txtIn">
+			<span>党组织名称</span> <input type="text" class="txtS" data-ng-model="partyname">
+		</article>
+		<article class="txtIn">
+			<span>党组织书记</span> <input type="text" class="txtS" data-ng-model="partymanagername">
+		</article>
+		<article class="txtIn">
+			<span>党组织书记联系电话</span> <input type="text" class="txtS" data-ng-model="partymanagerphone">
+		</article>
+		<article class="txtIn">
+			<span>党组织书记QQ</span> <input type="text" class="txtS" data-ng-model="partymanagerqq">
+		</article>
+		<article class="txtIn">
+			<span>工会数</span> <input type="text" class="txtS" data-ng-model="tradeunions">
+		</article>
+		<h4 class='nextPage'>下一页</h4>
+	</div>
+
+	<div class="qiye">
+		<h3>企业状态</h3>
+		<article class="txtIn">
+			<span>入驻前所在地</span> <input type="text" class="txtS" data-ng-model="oldaddress">
+		</article>
+		<article class="txtIn">
+			<span>入驻时间</span> <input type="text" class="txtS" placeholder="格式：2018-08-08" data-ng-model="datelogin"> <em>*</em>
+		</article>
+		<article class="txtIn">
+			<span>入驻地址</span>
+			<!-- 选择：社区-楼宇-楼层-房间，四级联动 -->
+			<select id="selcommunity" data-ng-model="communityid" data-ng-change="getBuildings(communityid)">  
+				 <option data-ng-repeat="item in communityItems" value="{{item.content[0]}}">{{item.content[1]}}</option>
+			</select>
+			<select id="selbuilding" data-ng-model="buildingid" data-ng-change="getFloors(buildingid)">  
+				 <option data-ng-repeat="item in buildingItems" value="{{item.content[0]}}">{{item.content[1]}}</option>
+			</select>
+			<select id="selfloor" data-ng-model="floornum" data-ng-change="getRooms(floornum)">  
+				 <option data-ng-repeat="item in floorItems" value="{{item}}">{{item}}</option>
+			</select>
+			<select id="selroom" data-ng-model="roomid" data-ng-change="getRoomArea(roomid)">
+				 <option data-ng-repeat="item in roomItems" value="{{item.content[2]}}">{{item.content[3]}}</option>
+			</select>
+			<em>*</em>
+		</article>
+		<article class="txtIn">
+			<span>入驻面积（m<sup>2</sup>）</span> 
+			<input type="text" class="txtS" data-ng-disabled="true" data-ng-model="roomarea">
+		</article>
+		<h4 class='txtB' data-ng-click="save()">保存</h4>
+	</div>
+	<!-- <h2 class="catName">企业管理-企业人事</h2> -->
+
+</div>
+
+<script>
+	$(document).ready(function () {
+	
+		$('.qiye').eq(0).show().siblings('.qiye').hide();
+		$('.nextPage').click(function() {
+			var $wrap = $(this).parent('.qiye');
+			$wrap.hide().next().show();
+		});
+		
+	});
+</script>

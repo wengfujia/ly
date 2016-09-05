@@ -1,0 +1,37 @@
+<div class="main clr" data-ng-controller="RentController">
+	<div class="title"><h4>楼宇资源</h4></div>
+	
+	<div id="thelist" class="lyzy clr" data-ng-repeat="item in items">
+		<p>
+			<span>房号</span>
+			<h4>{{item.content[1]}}</h4>
+		</p>
+		<p>
+			<span>楼宇名称</span>
+			<h4 style="color: red">{{item.content[2]}}</h4>
+		</p>
+		<p>
+			<span>楼层</span>
+			<h4>{{item.content[3]}}</h4>
+		</p>
+		<p>
+			<span>面积</span>
+			<h4>{{item.content[4]}}平方米</h4>
+		</p>
+		<p>
+			<span>租金</span>
+			<h4>{{item.content[5]}}元</h4>
+		</p>
+		<p>
+			<span>物业费</span>
+			<h4>{{item.content[6]}}元</h4>
+		</p>
+		<p>
+			<span>联系电话</span>
+			<h4>{{item.content[7]}}</h4>
+		</p>
+	</div>
+	<p id="loading" style="text-align: center;">数据正在加载...</p>
+    <p id="overing">数据加载完毕...</p>
+
+</div>

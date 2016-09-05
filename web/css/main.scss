@@ -1,0 +1,362 @@
+@import "_reset";
+@mixin fl(){
+	float: left;
+	overflow: hidden;
+	_display: inline;
+}
+@mixin fr(){
+	float: right;
+	overflow: hidden;
+	_display: inline;
+}
+@mixin ml($ml){
+	margin-left: $ml;
+}
+@mixin picBlock($width){
+	width: $width;
+	height: 1.05*$width;
+	margin-left: 0.2*$width;
+	overflow: hidden;
+	@include fl();
+	h4{
+		height: 36px;
+		line-height: 40px;
+		font-size: 14px;
+		overflow: hidden;
+	}
+	img{
+		display: block;
+		width: $width;
+		height: 0.75*$width;
+		border-radius: 3px;
+	}
+}
+@mixin divFullSize($height){
+	height: $height;
+	width: 100%;
+	overflow: hidden;
+	display: block;
+}
+@mixin divBorderInner($width,$height){
+	height: $height - 2;
+	width: $width - 2;
+	border: 1px solid #afc7f6;
+	overflow: hidden;
+	margin-bottom: 10px;
+	overflow: hidden;
+	background: #fff;
+}
+@mixin liStyleCom{
+	height: 26px;
+	line-height: 26px;
+	overflow: hidden;
+	padding: 0 10px;
+}
+@mixin liStyleBorder{
+	border-bottom: 1px dashed #ddd;
+	height: 35px;
+	line-height: 36px;
+}
+@mixin liStyleBg{
+	background: url(img/liStyleBg.png) 0 17px no-repeat;
+}
+@mixin title(){
+	width: 100%;
+	height: 27px;
+	overflow: hidden;
+	background: #e2e7fb;
+	border-bottom:1px solid #b0c9f6;
+	h3,span{
+		height: 27px;
+		font-size: 14px;
+		font-weight: bold;
+		@include fl();
+		color: #fff;
+		letter-spacing: 1px;
+		&.single{
+			width: 117px;
+			text-align: left;
+			text-indent: 1em;
+			background: url(img/titleSingle.png) no-repeat;
+		}
+		&.active{
+			width: 90px;
+			background: url(img/titleTab.png) repeat-x;
+		}
+	}
+	span{
+		cursor: pointer;
+		color: #1385ac;
+		-webkit-transition: all 0.2s;
+		-moz-transition: all 0.2s;
+		-o-transition: all 0.2s;
+	}
+	a{
+		&.more{
+			@include fr();
+			padding: 12px 7px 0 0;
+		}
+	}
+}
+
+.main{
+	width: 1000px;
+	margin: 0 auto;
+	.title{
+		@include title();
+	}
+	.topInfo{
+		@include divFullSize(32px);
+		line-height: 32px;
+		text-align: right;
+	}
+	.logo{
+		@include divFullSize(231px);
+		text-indent: -9999px;
+	}
+	.topNav{
+		@include divFullSize(32px);
+		line-height: 34px;
+		text-align: center;
+		font-size: 14px;
+		font-weight: bold;
+		a{
+			color: #fff;
+			padding: 8px 18px;
+			
+			&:hover{
+				background: #fff;
+				border-radius: 5px 5px 0 0;
+				color: #000;
+			}
+		}
+		span{
+			color: #fff;
+		}
+	}
+	.nbsp{
+		@include divFullSize(10px);
+		border-top: 1px solid #00bffe;
+		margin-top: 30px;
+	}
+	.selectInfo{
+		@include divFullSize(50px);
+		background: #1391d8;
+		margin-bottom: 10px;
+		.txtSelect{
+			width: 143px;
+			padding: 3px;
+			margin: 13px 0 0 20px;
+			border: 1px solid #d8d8d8;
+			font-size: 14px;
+		}
+	}
+	.notice{
+		@include fl();
+		width: 230px;
+		height: 315px;
+		.noticeCon{
+			@include divBorderInner(230px,152px);
+			ul{
+				padding-top: 10px;
+				li{
+					@include liStyleCom();
+				}
+			}
+		}
+	}
+	.picnews{
+		@include divBorderInner(420px,315px);
+		@include fl();
+		@include ml(10px);
+		#myFocus{
+			width: 418px;
+			height: 313px;
+			overflow: hidden;
+		}
+	}
+	.trends{
+		@include divBorderInner(330px,315px);
+		@include fl();
+		@include ml(10px);
+		ul{
+			padding: 13px 10px 0;
+			li{
+				@include liStyleCom();
+				@include liStyleBorder();
+				@include liStyleBg();
+			}
+		}
+	}
+	.banner{
+		@include divFullSize(70px);
+		margin-bottom: 10px;
+	}
+	.lyShow{
+		@include divBorderInner(1000px,auto);
+		ul{
+			padding-top: 30px !important;
+			li{
+				@include picBlock(200px);
+			}
+		}
+	}
+	.bmService{
+		@include divBorderInner(230px,auto);
+		background: #ebf8ff;
+		@include fl();
+		ul{
+			margin: 16px 0 0 8px;
+			li{
+				margin:0 0 15px 8px;
+				@include fl();
+				width: 93px;
+				height: 28px;
+				line-height: 28px;
+				background: url(img/service.png) no-repeat;
+				text-align: center;
+				font-size: 12px;
+				a{
+					color: #195f9d;
+				}
+			}
+		}
+	}
+	.lySource{
+		@include divBorderInner(760px,347px);
+		@include fl();
+		@include ml(10px);
+		span{
+			line-height: 28px;
+			font-size: 12px;
+			padding: 0 5px;
+			&.active{
+				color: red;
+				width: auto;
+				background: none;
+			}
+		}
+		.tabShow {
+			width: 758px;
+			table{
+				@include divFullSize(100%);
+				display: inline-table;
+				text-align: center;
+				tr{
+					height: 30px;
+					line-height: 30px;
+					border-bottom: 1px solid #b0c9f6;
+				}
+			}
+		}
+		
+	}
+	.lyArea{
+		@include divBorderInner(1000px,auto);
+		ul{
+			padding-top: 28px;
+			li{
+				@include picBlock(164px);
+				margin-left: 30px;
+			}
+		}
+	}
+	.corp{
+		@include divBorderInner(230px,auto);
+		@include fl();
+		span{
+			display: inline-block;
+			width: 80px;
+			text-align: center;
+			&.active{
+				color: #fff;
+				width: 80px;
+			}
+		}
+		ul{
+			padding: 15px 5px;
+			li{
+				@include liStyleCom()
+			}
+		}
+		.searchCorp{
+			height: 22px;
+			overflow: hidden;
+			margin: 0 auto 10px;
+			width: 200px;
+			button{
+				width: 77px;
+				height: 22px;
+				display: block;
+				@include fl();
+				padding: 0;
+				border: none;
+			}
+			input{
+				width: 110px;
+				height: 18px;
+				padding: 1px 5px;
+				font-size: 12px;
+				border: none;
+				border: 1px solid #ddd;
+				border-right: none;
+				display: block;
+				@include fl();
+			}
+		}
+	}
+	.zpInfo{
+		@include divBorderInner(760px,252px);
+		@include fl();
+		@include ml(10px);
+		ul{
+			padding: 0 10px;
+			li{
+				@include liStyleCom();
+				@include liStyleBorder();
+			}
+		}
+	}
+	.friLink{
+		@include divBorderInner(1000px,auto);
+		.friLinkShow{
+			padding: 10px;
+			a{
+				padding: 0 7px 0 4px;
+				line-height: 26px;
+			}
+		}
+	}
+}
+.footer{
+	@include divFullSize(210px);
+	padding-top: 30px;
+	background: #e5e5e5;
+	border-top: 3px solid #0047a9;
+	text-align: center;
+	a{
+		color: red;
+		font-size: 16px;
+		font-weight: bold;
+		line-height: 40px;
+	}
+	span{
+		line-height: 40px;
+		padding: 0 5px 0 12px;
+		color: red;
+		font-weight: bold;
+	}
+	p{
+		font: 14px/2 "Microsoft YaHei"; 
+	}
+}
+
+
+
+
+
+
+
+@import "_show";
+@import "_list";
+@import "_category";

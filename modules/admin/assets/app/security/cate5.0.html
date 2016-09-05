@@ -1,0 +1,42 @@
+<h2 class="catName">社区基本信息更新</h2>
+<div data-ng-controller='CommunityController'>
+	<article class="txtIn">
+		<span>社区名称</span> <input type="text" class="txtS" data-ng-model='name'> <em>*</em>
+	</article>
+	<article class="txtIn">
+		<span>社区代码</span> <input type="text" class="txtS" data-ng-model='code'> <em>*</em>
+	</article>
+	<article class="txtIn">
+		<span>联系人</span> <input type="text" class="txtS" data-ng-model='linkname'> <em>*</em>
+	</article>
+	<article class="txtIn">
+		<span>联系电话</span> <input type="text" class="txtS" data-ng-model='linkphone'> <em>*</em>
+	</article>
+	<article class="txtIn">
+		<span>手机</span> <input type="text" class="txtS" data-ng-model='mobile'>
+	</article>
+	<article class="txtIn">
+		<span>地址</span> <input type="text" class="txtS" data-ng-model='address'> <em>*</em>
+	</article>
+	<article class="txtIn">
+		<span>社区介绍</span>
+		<textarea class="txtM" data-ng-model='desc'></textarea>
+	</article>
+	<!-- <article class="txtIn">
+		<span>社区照片</span> <input type="file" class="txtF">
+	</article> -->
+	<article class="txtIn">
+		<span>社区照片</span>
+		<a class="btn" id="browfiles">上传图片</a> 最大500KB，支持jpg，gif，png格式
+		<!-- <input type="file" class="txtF" accept="image/*" id="hidden_input"> -->
+	</article>
+	<article class="imgArea" id="container">
+		<p id="imgArea"><img data-ng-if="photopath>''" data-ng-src=".{{photopath}}"></p>
+		<p></p>
+		<!-- <pre id="console"></pre> -->
+	</article>
+	<br>
+	<article class="txtIn">
+		<span></span> <input type="button" class="btn btn-success" title="保存" value="保存" data-ng-click='updateProfile()' />
+	</article>
+</div>

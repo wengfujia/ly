@@ -1,0 +1,15 @@
+<div class="main clr">
+
+	<article class="top-img clr" data-ng-controller="BuildingController">
+		<span data-ng-repeat="build in buildings">
+        	<a href="#/building/show?id={{build['content'][0]}}"><img src="{{build['content'][2]}}"><p>{{build['content'][1]}}</p><b></b></a>
+        </span>        		
+	</article>
+
+</div>
+<script>
+	$(function(){
+		$('.top-img span:even').css('margin-left','0px');
+		$('.top-news ul li').last().css('border-bottom','none');
+	})
+</script>

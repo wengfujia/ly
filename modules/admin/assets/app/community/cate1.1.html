@@ -1,0 +1,31 @@
+<h2 class="catName">社区所属楼宇</h2>
+<div data-ng-controller="CommunityController">
+
+	<div class="shequ-info">
+		<table>
+			<tr>
+				<th>楼宇名称</th>
+				<th>所属社区</th>
+				<th>楼宇地址</th>
+				<th>操作</th>
+			</tr>
+			<tr data-ng-repeat="item in pagedItems">
+				<td>{{item.content[1]}}</td>
+				<td>{{item.content[2]}}</td>
+				<td>{{item.content[5]}}</td>
+				<td><a href="" data-ng-click="loadEditForm(item.content[0], false)">详情</a>/
+				<a href="" data-ng-click="loadEditForm(item.content[0], false)">修改</a>/
+				<a href="" data-ng-click="loadEditForm(item.content[0], false)">删除</a></td>
+			</tr>			
+		</table>
+	</div>
+
+	<div class="page">
+		<paging page="currentPage"
+			page-size="itemPerPage"
+			total="recordCount"
+			show-prev-next="true"
+			paging-action="setPage(page)">
+	</div>
+
+</div>

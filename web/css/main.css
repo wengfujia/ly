@@ -1,0 +1,1156 @@
+/*reset*/
+body, div, ul, ol, li, h1, h2, h3, h4, h5, h6, p, th, td, img {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+img {
+  border: none;
+  vertical-align: top;
+}
+
+ul, li {
+  list-style: none;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-size: 100%;
+  font-weight: normal;
+  text-align: center;
+}
+
+input, textarea, select {
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+  *font-size: 100%;
+}
+
+.clear {
+  clear: both;
+  height: 0;
+  line-height: 0;
+  font-size: 0;
+  font-size: 0;
+  overflow: hidden;
+}
+
+.clr {
+  zoom: 1;
+}
+
+.clr:after {
+  display: block;
+  clear: both;
+  height: 0;
+  content: "\0020";
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+a:hover {
+  color: red !important;
+}
+
+body {
+  background: url(img/body.jpg) center top no-repeat #fbfcfd;
+  font: 12px/2 \5b8b\4f53;
+}
+
+a.more {
+  float: right;
+  overflow: hidden;
+  _display: inline;
+  padding: 12px 7px 0 0;
+}
+
+.main {
+  width: 1000px;
+  margin: 0 auto;
+}
+.main .title {
+  width: 100%;
+  height: 27px;
+  overflow: hidden;
+  background: #e2e7fb;
+  border-bottom: 1px solid #b0c9f6;
+}
+.main .title h3, .main .title span {
+  height: 27px;
+  font-size: 14px;
+  font-weight: bold;
+  float: left;
+  overflow: hidden;
+  _display: inline;
+  color: #fff;
+  letter-spacing: 1px;
+}
+.main .title h3.single, .main .title span.single {
+  width: 117px;
+  text-align: left;
+  text-indent: 1em;
+  background: url(img/titleSingle.png) no-repeat;
+}
+.main .title h3.active, .main .title span.active {
+  width: 90px;
+  background: url(img/titleTab.png) repeat-x;
+}
+.main .title span {
+  cursor: pointer;
+  color: #1385ac;
+  -webkit-transition: all 0.2s;
+  -moz-transition: all 0.2s;
+  -o-transition: all 0.2s;
+}
+.main .topInfo {
+  height: 32px;
+  width: 100%;
+  overflow: hidden;
+  display: block;
+  line-height: 32px;
+  text-align: right;
+}
+.main .logo {
+  height: 231px;
+  width: 100%;
+  overflow: hidden;
+  display: block;
+  text-indent: -9999px;
+}
+.main .topNav {
+  height: 32px;
+  width: 100%;
+  overflow: hidden;
+  display: block;
+  line-height: 34px;
+  text-align: center;
+  font-size: 14px;
+  font-weight: bold;
+}
+.main .topNav a {
+  color: #fff;
+  padding: 8px 18px;
+}
+.main .topNav a:hover {
+  background: #fff;
+  border-radius: 5px 5px 0 0;
+  color: #000;
+}
+.main .topNav span {
+  color: #fff;
+}
+.main .nbsp {
+  height: 10px;
+  width: 100%;
+  overflow: hidden;
+  display: block;
+  border-top: 1px solid #00bffe;
+  margin-top: 30px;
+}
+.main .selectInfo {
+  height: 50px;
+  width: 100%;
+  overflow: hidden;
+  display: block;
+  background: #1391d8;
+  margin-bottom: 10px;
+}
+.main .selectInfo .txtSelect {
+  width: 143px;
+  padding: 3px;
+  margin: 13px 0 0 20px;
+  border: 1px solid #d8d8d8;
+  font-size: 14px;
+}
+.main .notice {
+  float: left;
+  overflow: hidden;
+  _display: inline;
+  width: 230px;
+  height: 315px;
+}
+.main .notice .noticeCon {
+  height: 150px;
+  width: 228px;
+  border: 1px solid #afc7f6;
+  overflow: hidden;
+  margin-bottom: 10px;
+  overflow: hidden;
+  background: #fff;
+}
+.main .notice .noticeCon ul {
+  padding-top: 10px;
+}
+.main .notice .noticeCon ul li {
+  height: 26px;
+  line-height: 26px;
+  overflow: hidden;
+  padding: 0 10px;
+}
+.main .picnews {
+  height: 313px;
+  width: 418px;
+  border: 1px solid #afc7f6;
+  overflow: hidden;
+  margin-bottom: 10px;
+  overflow: hidden;
+  background: #fff;
+  float: left;
+  overflow: hidden;
+  _display: inline;
+  margin-left: 10px;
+}
+.main .picnews #myFocus {
+  width: 418px;
+  height: 313px;
+  overflow: hidden;
+}
+.main .trends {
+  height: 313px;
+  width: 328px;
+  border: 1px solid #afc7f6;
+  overflow: hidden;
+  margin-bottom: 10px;
+  overflow: hidden;
+  background: #fff;
+  float: left;
+  overflow: hidden;
+  _display: inline;
+  margin-left: 10px;
+}
+.main .trends ul {
+  padding: 13px 10px 0;
+}
+.main .trends ul li {
+  height: 26px;
+  line-height: 26px;
+  overflow: hidden;
+  padding: 0 10px;
+  border-bottom: 1px dashed #ddd;
+  height: 35px;
+  line-height: 36px;
+  background: url(img/liStyleBg.png) 0 17px no-repeat;
+}
+.main .banner {
+  height: 70px;
+  width: 100%;
+  overflow: hidden;
+  display: block;
+  margin-bottom: 10px;
+}
+.main .lyShow {
+  height: auto-2;
+  width: 998px;
+  border: 1px solid #afc7f6;
+  overflow: hidden;
+  margin-bottom: 10px;
+  overflow: hidden;
+  background: #fff;
+}
+.main .lyShow ul {
+  padding-top: 30px !important;
+}
+.main .lyShow ul li {
+  width: 200px;
+  height: 210px;
+  margin-left: 40px;
+  overflow: hidden;
+  float: left;
+  overflow: hidden;
+  _display: inline;
+}
+.main .lyShow ul li h4 {
+  height: 36px;
+  line-height: 40px;
+  font-size: 14px;
+  overflow: hidden;
+}
+.main .lyShow ul li img {
+  display: block;
+  width: 200px;
+  height: 150px;
+  border-radius: 3px;
+}
+.main .bmService {
+  height: auto-2;
+  width: 228px;
+  border: 1px solid #afc7f6;
+  overflow: hidden;
+  margin-bottom: 10px;
+  overflow: hidden;
+  background: #fff;
+  background: #ebf8ff;
+  float: left;
+  overflow: hidden;
+  _display: inline;
+}
+.main .bmService ul {
+  margin: 16px 0 0 8px;
+}
+.main .bmService ul li {
+  margin: 0 0 15px 8px;
+  float: left;
+  overflow: hidden;
+  _display: inline;
+  width: 93px;
+  height: 28px;
+  line-height: 28px;
+  background: url(img/service.png) no-repeat;
+  text-align: center;
+  font-size: 12px;
+}
+.main .bmService ul li a {
+  color: #195f9d;
+}
+.main .lySource {
+  height: 345px;
+  width: 758px;
+  border: 1px solid #afc7f6;
+  overflow: hidden;
+  margin-bottom: 10px;
+  overflow: hidden;
+  background: #fff;
+  float: left;
+  overflow: hidden;
+  _display: inline;
+  margin-left: 10px;
+}
+.main .lySource span {
+  line-height: 28px;
+  font-size: 12px;
+  padding: 0 5px;
+}
+.main .lySource span.active {
+  color: red;
+  width: auto;
+  background: none;
+}
+.main .lySource .tabShow {
+  width: 758px;
+}
+.main .lySource .tabShow table {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  display: block;
+  display: inline-table;
+  text-align: center;
+}
+.main .lySource .tabShow table tr {
+  height: 30px;
+  line-height: 30px;
+  border-bottom: 1px solid #b0c9f6;
+}
+.main .lyArea {
+  height: auto-2;
+  width: 998px;
+  border: 1px solid #afc7f6;
+  overflow: hidden;
+  margin-bottom: 10px;
+  overflow: hidden;
+  background: #fff;
+}
+.main .lyArea ul {
+  padding-top: 28px;
+}
+.main .lyArea ul li {
+  width: 164px;
+  height: 172.2px;
+  margin-left: 32.8px;
+  overflow: hidden;
+  float: left;
+  overflow: hidden;
+  _display: inline;
+  margin-left: 30px;
+}
+.main .lyArea ul li h4 {
+  height: 36px;
+  line-height: 40px;
+  font-size: 14px;
+  overflow: hidden;
+}
+.main .lyArea ul li img {
+  display: block;
+  width: 164px;
+  height: 123px;
+  border-radius: 3px;
+}
+.main .corp {
+  height: auto-2;
+  width: 228px;
+  border: 1px solid #afc7f6;
+  overflow: hidden;
+  margin-bottom: 10px;
+  overflow: hidden;
+  background: #fff;
+  float: left;
+  overflow: hidden;
+  _display: inline;
+}
+.main .corp span {
+  display: inline-block;
+  width: 80px;
+  text-align: center;
+}
+.main .corp span.active {
+  color: #fff;
+  width: 80px;
+}
+.main .corp ul {
+  padding: 15px 5px;
+}
+.main .corp ul li {
+  height: 26px;
+  line-height: 26px;
+  overflow: hidden;
+  padding: 0 10px;
+}
+.main .corp .searchCorp {
+  height: 22px;
+  overflow: hidden;
+  margin: 0 auto 10px;
+  width: 200px;
+}
+.main .corp .searchCorp button {
+  width: 77px;
+  height: 22px;
+  display: block;
+  float: left;
+  overflow: hidden;
+  _display: inline;
+  padding: 0;
+  border: none;
+}
+.main .corp .searchCorp input {
+  width: 110px;
+  height: 18px;
+  padding: 1px 5px;
+  font-size: 12px;
+  border: none;
+  border: 1px solid #ddd;
+  border-right: none;
+  display: block;
+  float: left;
+  overflow: hidden;
+  _display: inline;
+}
+.main .zpInfo {
+  height: 250px;
+  width: 758px;
+  border: 1px solid #afc7f6;
+  overflow: hidden;
+  margin-bottom: 10px;
+  overflow: hidden;
+  background: #fff;
+  float: left;
+  overflow: hidden;
+  _display: inline;
+  margin-left: 10px;
+}
+.main .zpInfo ul {
+  padding: 0 10px;
+}
+.main .zpInfo ul li {
+  height: 26px;
+  line-height: 26px;
+  overflow: hidden;
+  padding: 0 10px;
+  border-bottom: 1px dashed #ddd;
+  height: 35px;
+  line-height: 36px;
+}
+.main .friLink {
+  height: auto-2;
+  width: 998px;
+  border: 1px solid #afc7f6;
+  overflow: hidden;
+  margin-bottom: 10px;
+  overflow: hidden;
+  background: #fff;
+}
+.main .friLink .friLinkShow {
+  padding: 10px;
+}
+.main .friLink .friLinkShow a {
+  padding: 0 7px 0 4px;
+  line-height: 26px;
+}
+
+.footer {
+  height: 210px;
+  width: 100%;
+  overflow: hidden;
+  display: block;
+  padding-top: 30px;
+  background: #e5e5e5;
+  border-top: 3px solid #0047a9;
+  text-align: center;
+}
+.footer a {
+  color: red;
+  font-size: 16px;
+  font-weight: bold;
+  line-height: 40px;
+}
+.footer span {
+  line-height: 40px;
+  padding: 0 5px 0 12px;
+  color: red;
+  font-weight: bold;
+}
+.footer p {
+  font: 14px/2 "Microsoft YaHei";
+}
+
+.Show {
+  height: auto-2;
+  width: 998px;
+  border: 1px solid #afc7f6;
+  overflow: hidden;
+  margin-bottom: 10px;
+  overflow: hidden;
+  background: #fff;
+  margin-bottom: 30px;
+  padding: 40px 0 20px;
+}
+.Show h2 {
+  font-weight: 800;
+  font-size: 26px;
+  line-height: 30px;
+  color: #000;
+  width: 800px;
+  margin: 0 auto;
+}
+.Show h4 {
+  font-size: 12px;
+  height: 40px;
+  line-height: 40px;
+  width: 600px;
+  margin: 0 auto;
+  color: #aaa;
+}
+.Show p {
+  font-size: 14px;
+  padding: 10px 50px;
+  text-indent: 2em;
+}
+
+.listSource {
+  height: auto-2;
+  width: 998px;
+  border: 1px solid #afc7f6;
+  overflow: hidden;
+  margin-bottom: 10px;
+  overflow: hidden;
+  background: #fff;
+}
+.listSource table {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  display: block;
+  display: inline-table;
+  text-align: center;
+}
+.listSource table tr {
+  height: 30px;
+  line-height: 30px;
+  border-bottom: 1px solid #b0c9f6;
+}
+
+.xjxc {
+  width: 990px;
+  height: 644px;
+  margin: 0 auto;
+  background: url(img/xjxc.jpg) no-repeat;
+  padding-top: 666px;
+}
+.xjxc .biaodan {
+  width: 500px;
+  margin: 0 auto;
+  text-align: center;
+}
+.xjxc .biaodan .txtS {
+  display: block;
+  height: 30px;
+  width: 470px;
+  padding: 3px 10px;
+  font-size: 18px;
+  margin-bottom: 14px;
+  background: #f6ead8;
+  border: none;
+  border-radius: 5px;
+}
+.xjxc .biaodan .txtM {
+  display: block;
+  height: 300px;
+  width: 470px;
+  padding: 10px;
+  font-size: 18px;
+  margin-bottom: 14px;
+  background: #f6ead8;
+  border: none;
+  border-radius: 5px;
+  resize: none;
+}
+.xjxc .biaodan .txtB {
+  width: 145px;
+  height: 36px;
+  margin: 20px;
+  border: none;
+  background: #f6ead8;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.lyzs {
+  height: auto-2;
+  width: 998px;
+  border: 1px solid #afc7f6;
+  overflow: hidden;
+  margin-bottom: 10px;
+  overflow: hidden;
+  background: #fff;
+  margin-bottom: 30px;
+  padding: 40px 0 20px;
+}
+.lyzs h2, .lyzs h4 {
+  text-align: left;
+}
+.lyzs .qyName {
+  width: 240px;
+  float: left;
+  overflow: hidden;
+  _display: inline;
+  margin-left: 30px;
+}
+.lyzs .qyName ul li {
+  border-top: 1px dotted #ddd;
+  padding: 10px 10px 15px;
+  line-height: 30px;
+}
+.lyzs .qyName ul li h2 {
+  font-weight: bold;
+  font-size: 16px;
+  height: 30px;
+  overflow: hidden;
+}
+.lyzs .qyName ul li h4 {
+  font-size: 14px;
+  height: 30px;
+  overflow: hidden;
+}
+.lyzs .qyResume, .lyzs .qyMap {
+  width: 668px;
+  float: left;
+  overflow: hidden;
+  _display: inline;
+  margin-left: 30px;
+}
+.lyzs .qyResume {
+  padding-bottom: 30px;
+  border-bottom: 1px solid #ddd;
+}
+.lyzs .qyResume img {
+  float: left;
+  overflow: hidden;
+  _display: inline;
+  display: block;
+  width: 380px;
+  height: 285px;
+  margin-right: 20px;
+}
+.lyzs .qyResume h2 {
+  font-weight: 800;
+  font-size: 26px;
+  line-height: 30px;
+  color: #000;
+}
+.lyzs .qyResume span.resume {
+  display: block;
+  font-size: 14px;
+  padding-top: 10px;
+  text-indent: 2em;
+}
+.lyzs .qyMap {
+  padding-top: 20px;
+}
+.lyzs .qyMap h4 {
+  font-size: 16px;
+  font-weight: bold;
+  line-height: 30px;
+}
+.lyzs .qyMap div.mapCon {
+  height: auto;
+  width: 100%;
+  overflow: hidden;
+  display: block;
+  min-height: 400px;
+  background: #fafafa;
+}
+
+.navigate {
+  height: 40px;
+  line-height: 40px;
+  overflow: hidden;
+}
+
+.List {
+  height: 778px;
+  width: 998px;
+  border: 1px solid #afc7f6;
+  overflow: hidden;
+  margin-bottom: 10px;
+  overflow: hidden;
+  background: #fff;
+}
+.List ul {
+  padding: 30px 40px;
+}
+.List ul li {
+  line-height: 38px;
+  height: 38px;
+  overflow: hidden;
+  padding-left: 7px;
+  background: url(img/list_block.gif) 0 19px no-repeat;
+  font-size: 14px;
+}
+.List ul li span {
+  float: right;
+}
+.List ul li:hover {
+  background: url(img/list_block.gif) 0 19px no-repeat #fafafa;
+  color: red;
+}
+.List ul li:hover a {
+  color: red;
+}
+
+.page {
+  text-align: right;
+  padding: 10px 30px;
+  font-size: 14px;
+}
+.page a {
+  padding: 5px;
+}
+.page a.active {
+  background: red;
+  color: #fff;
+}
+
+.ZhaoShang {
+  padding-top: 20px;
+}
+.ZhaoShang h5 {
+  font-family: 'Microsoft Yahei';
+}
+.ZhaoShang .tabNav {
+  width: 230px;
+  float: left;
+  overflow: hidden;
+  _display: inline;
+}
+.ZhaoShang .tabNav h5 {
+  font-size: 26px;
+  line-height: 40px;
+  color: #1391d8;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+.ZhaoShang .tabNav span {
+  height: 48px;
+  width: 100%;
+  overflow: hidden;
+  display: block;
+  background: #f2f2f2;
+  line-height: 50px;
+  border-bottom: 1px solid #ddd;
+  font-size: 14px;
+  text-indent: 1em;
+  margin-top: 10px;
+  cursor: pointer;
+}
+.ZhaoShang .tabNav span.active {
+  width: 225px;
+  border-left: 5px solid #ff6600;
+  font-weight: bold;
+  color: #fff;
+  background: #1391d8;
+}
+.ZhaoShang .tabShow {
+  width: 740px;
+  float: right;
+  overflow: hidden;
+  _display: inline;
+}
+.ZhaoShang .tabShow h5 {
+  height: 40px;
+  width: 100%;
+  overflow: hidden;
+  display: block;
+  border-bottom: 1px solid #ddd;
+  text-align: left;
+  font-size: 22px;
+  color: #666;
+}
+.ZhaoShang .tabShow h5 .search {
+  float: right;
+  overflow: hidden;
+  _display: inline;
+  width: 300px;
+  padding: 9px 20px 0 0;
+  font-size: 14px;
+}
+.ZhaoShang .tabShow h5 .search button {
+  width: 77px;
+  height: 22px;
+  display: block;
+  float: left;
+  overflow: hidden;
+  _display: inline;
+  padding: 0;
+  border: none;
+}
+.ZhaoShang .tabShow h5 .search input {
+  width: 200px;
+  height: 18px;
+  padding: 1px 5px;
+  font-size: 12px;
+  border: none;
+  border: 1px solid #ddd;
+  border-right: none;
+  display: block;
+  float: left;
+  overflow: hidden;
+  _display: inline;
+}
+.ZhaoShang .tabShow h5 .navigate {
+  float: right;
+  overflow: hidden;
+  _display: inline;
+  width: 230px;
+  text-align: center;
+  font-size: 12px;
+  height: 40px;
+  line-height: 40px;
+}
+.ZhaoShang .tabShow ul {
+  padding-top: 20px;
+}
+.ZhaoShang .tabShow ul li {
+  width: 170px;
+  height: 178.5px;
+  margin-left: 34px;
+  overflow: hidden;
+  float: left;
+  overflow: hidden;
+  _display: inline;
+  height: 180px;
+  margin-left: 20px;
+  font-size: 12px;
+}
+.ZhaoShang .tabShow ul li h4 {
+  height: 36px;
+  line-height: 40px;
+  font-size: 14px;
+  overflow: hidden;
+}
+.ZhaoShang .tabShow ul li img {
+  display: block;
+  width: 170px;
+  height: 127.5px;
+  border-radius: 3px;
+}
+.ZhaoShang .tabShow ul li h4 {
+  height: 26px;
+  line-height: 26px;
+  margin-top: 4px;
+}
+.ZhaoShang .tabShow ul li h4 a {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  display: block;
+}
+.ZhaoShang .tabShow ul li h4 a:hover {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  display: block;
+  background: red;
+  color: #fff !important;
+}
+.ZhaoShang .tabShow .page {
+  text-align: right;
+  padding: 10px 30px;
+  font-size: 14px;
+}
+.ZhaoShang .tabShow .page a {
+  padding: 5px;
+}
+.ZhaoShang .tabShow .page a.active {
+  background: red;
+  color: #fff;
+}
+
+.cateLouyu {
+  width: 1000px;
+  margin: 0 auto;
+  padding-bottom: 30px;
+}
+.cateLouyu .title {
+  height: auto;
+  width: 100%;
+  overflow: hidden;
+  display: block;
+}
+.cateLouyu .cateLogo {
+  height: 386px;
+  width: 100%;
+  overflow: hidden;
+  display: block;
+}
+.cateLouyu .shequNav {
+  height: 42px;
+  width: 100%;
+  overflow: hidden;
+  display: block;
+  border-top: 1px solid #fff;
+  letter-spacing: 1px;
+  line-height: 46px;
+}
+.cateLouyu .shequNav a {
+  color: #fff;
+}
+.cateLouyu .shequNav a.backToIndex {
+  float: left;
+  overflow: hidden;
+  _display: inline;
+  font-size: 14px;
+  font-weight: bold;
+  padding-left: 1em;
+}
+.cateLouyu .shequNav p {
+  text-align: right;
+  padding: 0 20px;
+  color: #fff;
+  font-weight: bold;
+}
+.cateLouyu .shequNav p a {
+  font-weight: normal;
+}
+.cateLouyu .newsWrap {
+  height: 760px;
+  width: 100%;
+  overflow: hidden;
+  display: block;
+  padding: 20px 0;
+  background: #fff;
+}
+.cateLouyu .newsWrap .shequPics {
+  float: left;
+  overflow: hidden;
+  _display: inline;
+  margin-left: 20px;
+  width: 650px;
+  height: 486px;
+  margin-bottom: 20px;
+  background: #fafafa;
+}
+.cateLouyu .newsWrap .shequPics #SQmyFocus {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  display: block;
+}
+.cateLouyu .newsWrap .shequNews {
+  float: left;
+  overflow: hidden;
+  _display: inline;
+  margin-left: 20px;
+  width: 290px;
+  height: 486px;
+  margin-bottom: 20px;
+  background: #e5effc;
+}
+.cateLouyu .newsWrap .shequNews .title {
+  height: 45px;
+  letter-spacing: 1px;
+  color: #fff;
+  font-weight: bold;
+  line-height: 50px;
+  text-indent: 1em;
+  font-size: 14px;
+}
+.cateLouyu .newsWrap .shequNews ul {
+  padding: 10px;
+}
+.cateLouyu .newsWrap .shequNews ul li {
+  height: 26px;
+  line-height: 26px;
+  background: url(img/list_block.gif) 0 13px no-repeat;
+  padding-left: 7px;
+  overflow: hidden;
+}
+.cateLouyu .newsWrap .shequNews .more {
+  float: right;
+  overflow: hidden;
+  _display: inline;
+  padding: 0 10px 0 0;
+}
+.cateLouyu .newsWrap .shequInfo {
+  float: left;
+  overflow: hidden;
+  _display: inline;
+  margin-left: 20px;
+  width: 960px;
+  height: 253px;
+  background: #fdfbf2;
+}
+.cateLouyu .newsWrap .shequInfo .title {
+  height: 62px;
+  width: 100%;
+  overflow: hidden;
+  display: block;
+  margin-bottom: 22px;
+}
+.cateLouyu .newsWrap .shequInfo .infoCon {
+  margin: 0 36px 0 20px;
+  float: left;
+  overflow: hidden;
+  _display: inline;
+  width: 630px;
+  height: 136px;
+  line-height: 28px;
+}
+.cateLouyu .newsWrap .shequInfo a img {
+  float: left;
+  overflow: hidden;
+  _display: inline;
+  display: block;
+  margin-bottom: 10px;
+}
+.cateLouyu .shequBelongs {
+  height: 240px;
+  width: 100%;
+  overflow: hidden;
+  display: block;
+  background: #fdfbf2;
+}
+.cateLouyu .shequBelongs ul li {
+  width: 200px;
+  height: 210px;
+  margin-left: 40px;
+  overflow: hidden;
+  float: left;
+  overflow: hidden;
+  _display: inline;
+}
+.cateLouyu .shequBelongs ul li h4 {
+  height: 36px;
+  line-height: 40px;
+  font-size: 14px;
+  overflow: hidden;
+}
+.cateLouyu .shequBelongs ul li img {
+  display: block;
+  width: 200px;
+  height: 150px;
+  border-radius: 3px;
+}
+.cateLouyu .shequBelongs .picMarquee-left {
+  overflow: hidden;
+  position: relative;
+}
+.cateLouyu .shequBelongs .picMarquee-left .prev, .cateLouyu .shequBelongs .picMarquee-left .next {
+  display: block;
+  width: 35px;
+  height: 44px;
+  top: 98px;
+  position: absolute;
+  overflow: hidden;
+  cursor: pointer;
+}
+.cateLouyu .shequBelongs .picMarquee-left .prev {
+  background: url(img/next.png) no-repeat;
+  right: 10px;
+}
+.cateLouyu .shequBelongs .picMarquee-left .next {
+  background: url(img/prev.png) no-repeat;
+  left: 10px;
+}
+.cateLouyu .shequBelongs .picMarquee-left .bd {
+  width: 880px;
+  overflow: hidden;
+  _position: relative;
+  _z-index: -99;
+  margin: 0 auto;
+  height: 150px;
+  padding-top: 45px;
+}
+.cateLouyu .shequCity {
+  height: auto;
+  width: 100%;
+  overflow: hidden;
+  display: block;
+  background: #fdfbf2;
+  margin-bottom: 20px;
+}
+.cateLouyu .shequCity img {
+  display: block;
+  width: 960px;
+  height: 80px;
+  margin: 20px;
+}
+.cateLouyu .shequContact {
+  height: 63px;
+  width: 100%;
+  overflow: hidden;
+  display: block;
+  overflow: inherit;
+  position: relative;
+  background: #fff4aa;
+}
+.cateLouyu .shequContact .noth {
+  width: 83px;
+  height: 70px;
+  overflow: hidden;
+  position: absolute;
+  top: 0px;
+}
+.cateLouyu .shequContact .info {
+  width: 160px;
+  padding-left: 100px;
+  float: left;
+  overflow: hidden;
+  _display: inline;
+  padding-top: 12px;
+  line-height: 20px;
+}
+.cateLouyu .shequContact .info span {
+  font-size: 14px;
+  font-weight: bold;
+  color: #01565b;
+}
+
+.ly_footer {
+  height: 90px;
+  width: 100%;
+  overflow: hidden;
+  display: block;
+  padding: 20px 0;
+  text-align: center;
+  color: #fff;
+}
+.ly_footer p {
+  font: 14px/2 "Microsoft YaHei";
+}
