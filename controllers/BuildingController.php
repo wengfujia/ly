@@ -147,7 +147,7 @@ class BuildingController extends BaseController
     		'companyProvider' =>$companyProvider
     	] );
     }
-    
+
     /*
      * 搜索招商资源
      * 参数：$keyword搜索关键字 $title资源类虽

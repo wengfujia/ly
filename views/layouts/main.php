@@ -41,7 +41,7 @@ use yii\helpers\Url;
 			<span>|</span>
 			<a href="<?= Url::to(['/building/index']); ?>">招商引资</a>
 			<span>|</span>
-			<a href="<?= Url::to(['/post/list', 'title' => '招商引资']); ?>">楼宇资源</a>
+			<a href="<?= Url::to(['/post/list', 'title' => '楼宇资源']); ?>">楼宇资源</a>
 			<span>|</span>
 			<a href="<?= Url::to(['/post/list', 'title' => '服务办理']); ?>">服务办理</a>
 			<span>|</span>

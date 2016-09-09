@@ -12,7 +12,7 @@
 
     // set default if not passed in
     if (!scope.itemsPerPage) {
-        scope.itemsPerPage = 6;
+        scope.itemsPerPage = 16;
     }
 
     scope.range = function (start, end) {

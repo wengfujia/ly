@@ -13,7 +13,7 @@
 
 	// set default if not passed in
 	if (!scope.itemsPerPage) {
-		scope.itemsPerPage = 6; //每页显示记录数
+		scope.itemsPerPage = 16; //每页显示记录数
 	}
 
 	/*

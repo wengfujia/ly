@@ -14,8 +14,8 @@ angular.module('blogAdmin').controller('SecurityController', ["$rootScope", "$sc
 	//用户新增字段
 	$scope.nickname = '';
 	$scope.username = '';
-	$scope.password = '';
-	$scope.password_repeat = '';
+	$scope.passwrd = '';
+	$scope.passwrd_repeat = '';
 	$scope.role = '';
 	
 	$scope.old_password = '';
@@ -65,19 +65,23 @@ angular.module('blogAdmin').controller('SecurityController', ["$rootScope", "$sc
 	 * 信息操作
 	 * */
 	$scope.saveUser = function () {
+		console.log($scope.passwrd_repeat);
+		console.log($scope.passwrd);
+		console.log($scope.username);
+		
 		if (empty($scope.username)) {
 			toastr.error('用户名不能为空');
 			return;
 		}
-		if (empty($scope.password)) {
+		if (empty($scope.passwrd)) {
 			toastr.error('密码不能为空');
 			return;
 		}
-		if ($scope.password.length <8) {
+		if ($scope.passwrd.length <8) {
 			toastr.error('密码长度必须8位以上');
 			return;
 		}
-		if ($scope.password != $scope.password_repeat) {
+		if ($scope.passwrd != $scope.passwrd_repeat) {
 			toastr.error('两次输入的密码不一不致');
 			return;
 		}
@@ -86,8 +90,8 @@ angular.module('blogAdmin').controller('SecurityController', ["$rootScope", "$sc
 		var p = {
 			'nickname' : $scope.nickname,
 			'username' : $scope.username,
-			'password' : $scope.password,
-			'password_repeat' : $scope.password_repeat,
+			'password' : $scope.passwrd,
+			'password_repeat' : $scope.passwrd_repeat,
 			'email' : $scope.username+'@sina.com',
 			'role' : roleName
 		};
@@ -211,12 +215,12 @@ angular.module('blogAdmin').controller('SecurityController', ["$rootScope", "$sc
 	
 	//修改密码
 	$scope.changePassword = function () {
-		if ($scope.password != $scope.password_repeat) {
+		if ($scope.passwrd != $scope.passwrd_repeat) {
 			toastr.error('两次密码输入不一致');
 			return;
 		}
 		
-		var p = {'password': $scope.password, 'old_password': $scope.old_password};
+		var p = {'password': $scope.passwrd, 'old_password': $scope.old_password};
         dataService.addItem('admin/account/changepassword', p)
             .success(function (data) {
             	if (data.result == 0) {

@@ -72,9 +72,9 @@ class CommunityController extends BaseController
     	
     	//获取社区楼宇资源
     	$buildings = [];
-    	$decoder = httpServices::post(COMMANDID::$HOUSINGPHOTOLIST, 'guest', 'b.CommunityID=\'%'.$id.'%\'	');
+    	$decoder = httpServices::post(COMMANDID::$HOUSINGPHOTOLIST, 'guest', 'b.CommunityID=\''.$id.'\'	');
     	if (count($decoder->getContent())>0) {
-    		$buildings = $decoder->getContent()[0]['content'];
+    		$buildings = $decoder->getContent();
     	}
 
     	//查找社区新闻

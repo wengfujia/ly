@@ -52,7 +52,7 @@ else if (strpos($community[1], '金城')!== false)
 		</div>
 	</div>
 
-	<div class="title"><a href="<?= Url::to(['/building/search', 'CommunityID' => $community[0]]); ?>"><img src="<?= Url::base() ?>/css/img/<?=$css ?>/b1.png"></a></div>
+	<div class="title"><img src="<?= Url::base() ?>/css/img/<?=$css ?>/b1.png"></div><!-- <a href="<?= Url::to(['/building/search', 'CommunityID' => $community[0]]); ?>"> </a>-->
 	<div class="shequBelongs">
 		<div class="picMarquee-left">
 			<a class="next"></a>
@@ -62,7 +62,7 @@ else if (strpos($community[1], '金城')!== false)
 				<ul>
 					<?php 
 					foreach ($buildings as $building) {
-						echo '<li><a href="'.Url::to(['/building/show', 'id' => $building[0]]).'"><img src="'.Url::base().$building[2].'"></a>'.$building[1].'</li>';
+						echo '<li><a href="'.Url::to(['/building/show', 'id' => $building['content'][0]]).'"><img src="'.Url::base().$building['content'][2].'"></a>'.$building['content'][1].'</li>';
 					}
 					?>
                     <!-- <li><a href="#"><img src="style/img/demo.gif"></a></li>
