@@ -66,6 +66,11 @@ class SecurityController extends Controller
         if ($auth->getRole($name) == null) { //角色不存在，进行创建角色
         	$auth->add($role); //保存角色
         }
+        else {
+        	//删除该角色下的所有权限
+        	$auth->removeChildren($role);
+        }
+
         //创建权限
         $item_array = explode('|', $items);
         foreach ($item_array as $item)

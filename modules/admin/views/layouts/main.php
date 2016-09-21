@@ -7,15 +7,18 @@ use yii\helpers\Url;
 
 $rights = '';
 $community_id = '';
+$nickname = '';
 
 if (!Yii::$app->user->isGuest) {
 	/* @var User $current_user */
 	$current_user = Yii::$app->user->identity;
 	$community_id = $current_user->community_id;
 	$permissions = yii::$app->authManager->getPermissionsByRole($current_user->role);
+	
 	foreach ($permissions as $permission) {
 		$rights = $rights.'|'.$permission->name;
 	}
+	$nickname = $current_user->nickname;
 }
 else {
 	$this->context->redirect(Url::to(['/site/login']));
@@ -63,7 +66,7 @@ $app = AppAsset::register($this);
 			<?php echo Html::beginForm(['/site/logout'], 'post', ['id' => 'logout-form']) . Html::endForm()?>
             <?php $this->registerJs('$("#logout-btn").click(function(){ $("#logout-form").submit();});');?>
         </span> 
-		<span><a href="#/security/cate5.0">设置</a></span> <span>北干街道</span>
+		<span><a href="#/security/cate5.0">设置</a></span> <span><?= $nickname?></span>
 	</header>
 
 	<nav id="navSide">

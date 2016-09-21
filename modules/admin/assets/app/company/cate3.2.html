@@ -56,13 +56,13 @@
 						</form> -->
 					</article>			
 					<article class="txtIn">
-						<span>注销后新注册地</span> <input type="text" class="txtS" data-ng-disabled="!isEditItem" data-ng-model='newaddress'>
+						<span>注销后新注册地</span> <input type="text" class="txtS" data-ng-model='newaddress'> <!-- data-ng-disabled="!isEditItem"  -->
 					</article>			
 					<article class="txtIn">
-						<span>注销后联系人</span> <input type="text" class="txtS" data-ng-disabled="!isEditItem" data-ng-model='logoutlinkname'>
+						<span>注销后联系人</span> <input type="text" class="txtS" data-ng-model='logoutlinkname'> <!-- data-ng-disabled="!isEditItem"  -->
 					</article>			
 					<article class="txtIn">
-						<span>注销后联系电话</span> <input type="text" class="txtS" data-ng-disabled="!isEditItem" data-ng-model='logoutlinkphone'>
+						<span>注销后联系电话</span> <input type="text" class="txtS" data-ng-model='logoutlinkphone'> <!-- data-ng-disabled="!isEditItem"  -->
 					</article>			
 					<article class="txtIn">
 						<span>备注</span>
@@ -75,7 +75,7 @@
 					</article>
 				</div>
 				<div class="modal-footer">
-					<input type="button" class="btn btn-success pull-left" title="保存" value="保存" data-ng-if="isEditItem" data-ng-click='saveLogout()' />
+					<input type="button" class="btn btn-success pull-left" title="保存" value="保存" data-ng-click='saveLogout()' /> <!-- data-ng-if="isEditItem"  -->
 					<input type="button" class="btn btn-default pull-right" title="取消" value="取消" data-dismiss="modal" data-ng-click='focusInput=false' />
 				</div>
 			</div>
@@ -169,7 +169,7 @@
 				<td>{{getLogoutStatus(item.content[0])}}</td>
 				<td>
 					<a href="" data-ng-if="checkPermission('LogoutCompany') && getLogoutStatus(item.content[0])=='未通过' || getLogoutStatus(item.content[0])==''" data-ng-click="loadLogOutForm(item.content[0], true)">注销</a>
-					<a href="" data-ng-if="getLogoutStatus(item.content[0])=='已注销' || getLogoutStatus(item.content[0])=='审核中'" data-ng-click="loadLogOutForm(item.content[0], false)">查看</a>
+					<a href="" data-ng-if="getLogoutStatus(item.content[0])=='已注销' || getLogoutStatus(item.content[0])=='审核中'" data-ng-click="loadLogOutForm(item.content[0], false)">修改</a>
 					<a href="" data-ng-if="checkPermission('CheckLogoutCompany') && getLogoutStatus(item.content[0])=='审核中'" data-ng-click="loadLogOutCheckForm(item.content[0])">审核</a>
 				</td>
 			</tr>

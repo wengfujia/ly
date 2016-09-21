@@ -79,7 +79,7 @@ angular.module('blogAdmin').controller('CompanyController', ["$rootScope", "$sco
 	
 	//加载列表数据
 	$scope.load = function () {
-		var p = { username: session.getItem("uername"), body: $scope.body+'\t'+ $scope.orderBy+'\t'+$scope.recordCount+'\t'+$scope.currentPage };
+		var p = { username: session.getItem("uername"), body: $scope.body+'\t'+Settings.communityid+'\t'+ $scope.orderBy+'\t'+$scope.recordCount+'\t'+$scope.currentPage };
         dataService.getItems('admin/company/list', p)
             .success(function (data) {
             	if (data.result == 0) {
@@ -177,7 +177,7 @@ angular.module('blogAdmin').controller('CompanyController', ["$rootScope", "$sco
 			toastr.error('注册法人不能为空');
 			return;
 		}
-		if ($scope.injectionpeoplecode == "") {
+		/*if ($scope.injectionpeoplecode == "") {
 			toastr.error('法人身份证号不能为空');
 			return;
 		}
@@ -204,7 +204,7 @@ angular.module('blogAdmin').controller('CompanyController', ["$rootScope", "$sco
 		if ($scope.financerphone =="") {
 			toastr.error('财务联系电话不能为空');
 			return;
-		}
+		}*/
 		if ($scope.datelogin =="") {
 			toastr.error('入驻时间不能为空');
 			return;

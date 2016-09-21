@@ -195,6 +195,7 @@ angular.module('blogAdmin').controller('CommunityController', ["$rootScope", "$s
             .success(function (data) {
             	if (data.result == 0) {
             		Settings.communityid = data.data[0].content[0];
+            		$scope.id = data.data[0].content[0];
             		$scope.updateAccount();
             		toastr.success('社区保存成功');
             	}

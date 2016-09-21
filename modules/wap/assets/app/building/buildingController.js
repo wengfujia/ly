@@ -49,7 +49,6 @@ angular.module('blogAdmin').controller('BuildingController', ["$rootScope", "$sc
 	
 	$(document).ready(function () {
 		if ($scope.id) {
-			console.log($scope.id);
 			$scope.loadOne();
 			$('#loading').hide();
 		}

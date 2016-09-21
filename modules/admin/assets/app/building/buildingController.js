@@ -63,12 +63,14 @@ angular.module('blogAdmin').controller('BuildingController', ["$rootScope", "$sc
 	$scope.roomstatus = 1;	//房间状态
 	$scope.roomrent = '';	//租金价格
 	$scope.roomrenovation = 1;//装修方式
+	//登录用户的社区序号，作为默认序号值
+	if (null != Settings.communityid && Settings.communityid!='')
+		$scope.communityid = Settings.communityid;
 	
 	//初始化后台站点控制器
 	SiteInit($rootScope, $scope, dataService);
 	//初始化地图
 	MapInit($scope);
-	
 	//加载社区信息
 	$scope.loadCommunities('', '');
 	
@@ -107,7 +109,7 @@ angular.module('blogAdmin').controller('BuildingController', ["$rootScope", "$sc
 	
 	//加载列表数据
 	$scope.load = function () {
-		var p = { username: session.getItem("uername"), body: "\t"+ $scope.orderBy+"\t"+$scope.recordCount+"\t"+$scope.currentPage };
+		var p = { username: session.getItem("uername"), body: '\t'+Settings.communityid+"\t"+ $scope.orderBy+"\t"+$scope.recordCount+"\t"+$scope.currentPage };
         dataService.getItems('admin/building/list', p)
             .success(function (data) {
             	if (data.result == 0) {
@@ -125,11 +127,11 @@ angular.module('blogAdmin').controller('BuildingController', ["$rootScope", "$sc
                 toastr.error('获取楼宇列表出错');
             });
 	}
-
+	
 	//图片上传回调函数
 	var callFloorimage = function (result) {
-		$scope.floorimage = result.path;
-		$('#floorimage').html('<img src="'+$scope.floorimage+'"/>');
+		$scope.floorimage = $scope.floorimage+'|'+result.path;
+		$scope.showFloorImages();
 	}
 	//图片上传回调函数
 	var callBuildingphoto = function (result) {
@@ -144,13 +146,17 @@ angular.module('blogAdmin').controller('BuildingController', ["$rootScope", "$sc
 			pageInit($scope, $filter);
 		}
 		else if (url.indexOf("cate2.4")>0) {
-			$scope.loadBuildings('', '');
+			var condition = '';
+			if (Settings.communityid>'') {
+				condition = "b.CommunityID='"+Settings.communityid+"'";
+			}
+			$scope.loadBuildings(condition, '');
 		}
 		//初始化上传组件
 		//楼层结构图
 		initCoverImageUploader("floorfiles","floorcontainer","1mb","/file/upload",'',callFloorimage);
 		//楼宇图片
-		initCoverImageUploader("buildingfiles","buildingcontainer","1mb","/file/upload",'',callBuildingphoto);
+		initCoverImageUploader("buildingfiles","buildingcontainer","1mb","/file/upload",'',callBuildingphoto);		
 	});
 	
 	//统计楼宇楼层入驻情况
@@ -235,6 +241,8 @@ angular.module('blogAdmin').controller('BuildingController', ["$rootScope", "$sc
             		$scope.devicememo = data.data[0].content[27];//楼宇配套设施情况
             		$scope.trafficmemo = data.data[0].content[28];//周边交通工具状况
             		$scope.othermemo = data.data[0].content[29];//其他需要说明事项
+            		//显示图片
+            		$scope.showFloorImages();            		
             	}
             	else if (data.data) {
             		toastr.error('获取楼宇详情出错,原因：' + data.data[0].content[0]);
@@ -266,7 +274,7 @@ angular.module('blogAdmin').controller('BuildingController', ["$rootScope", "$sc
 			toastr.error('请选择楼宇地标');
 			return;
 		}
-		if ($scope.developcompany =="") {
+		/*if ($scope.developcompany =="") {
 			toastr.error('开发商名称不能为空');
 			return;
 		}
@@ -277,7 +285,7 @@ angular.module('blogAdmin').controller('BuildingController', ["$rootScope", "$sc
 		if ($scope.developphone =="") {
 			toastr.error('开发商联系电话不能为空');
 			return;
-		}
+		}*/
 		if ($scope.floorcout =="") {
 			toastr.error('楼宇层数不能为空');
 			return;
@@ -528,6 +536,23 @@ angular.module('blogAdmin').controller('BuildingController', ["$rootScope", "$sc
 			return 0;
 		}
 		return parseInt(value1)-parseInt(value2);
+	}
+	
+	//显示楼层结构图片
+	$scope.showFloorImages = function () {
+		var imageW = '200px';
+		var imageHtml = '';
+		var images = $scope.floorimage.split('|');
+		if (images.length>1) { //计算图片高度
+			imageW= 100/images.length +'%';
+		}
+		for (var i=0;i<images.length;i++) {
+			var image = images[i];
+			if (image>'') {
+				imageHtml += '<img style="width: '+imageW+';display: inline;" src="'+image+'"/>';
+			}
+		}
+		$('#floorimage').html(imageHtml);
 	}
 	
 	//获取社区名称

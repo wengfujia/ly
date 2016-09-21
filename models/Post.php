@@ -69,7 +69,7 @@ class Post extends BaseModel
     public function scenarios()
     {
         $scenarios = parent::scenarios();
-        $scenarios[self::SCENARIO_EDIT] = ['Author', 'Title', 'PostContent', 'Description'];
+        $scenarios[self::SCENARIO_EDIT] = ['CommunityID', 'Author', 'Title', 'PostContent', 'Description'];
         $scenarios[self::SCENARIO_MANAGE] = $scenarios[self::SCENARIO_EDIT] + ['DateCreated'];
         return $scenarios;
     }
@@ -101,6 +101,7 @@ class Post extends BaseModel
     public function attributeLabels()
     {
         return [
+        	'CommunityID' => '所属社区',
             'PostID' => '文章ID',
             'Title' => '标题',
             'Slug' => '访问别名',

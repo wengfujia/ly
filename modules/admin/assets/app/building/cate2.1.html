@@ -28,8 +28,8 @@
 		<article class="txtIn">
 			<span>所属社区</span> 
 			<select class="txtSelect" data-ng-model="communityid">
-				<option value="0" selected="selected">请选择</option>
-				<option data-ng-repeat="item in communityItems" value="{{item.content[0]}}">{{item.content[1]}}</option>
+				<option value="0" >请选择</option>
+				<option data-ng-selected="item.content[0]==communityid" data-ng-repeat="item in communityItems" value="{{item.content[0]}}">{{item.content[1]}}</option>
 			</select><em>*</em>
 		</article>
 		<article class="txtIn">
@@ -44,15 +44,15 @@
 
 		<article class="txtIn">
 			<span>开发商名称</span> 
-			<input type="text" class="txtS" data-ng-model="developcompany"> <em>*</em>
+			<input type="text" class="txtS" data-ng-model="developcompany"> <!--<em>*</em> -->
 		</article>
 		<article class="txtIn">
 			<span>开发商联系人</span> 
-			<input type="text" class="txtS" data-ng-model="developname"> <em>*</em>
+			<input type="text" class="txtS" data-ng-model="developname"> <!-- <em>*</em> -->
 		</article>
 		<article class="txtIn">
 			<span>开发商联系电话</span> 
-			<input type="text" class="txtS" data-ng-model="developphone"> <em>*</em>
+			<input type="text" class="txtS" data-ng-model="developphone"> <!--<em>*</em> -->
 		</article>
 
 		<article class="txtIn">
@@ -85,7 +85,7 @@
 			<a class="btn" id="floorfiles">上传图片</a> 最大500KB，支持jpg，gif，png格式
 		</article>
 		<article class="imgArea" id="floorcontainer">		
-			<p id="floorimage"><img ng-if="floorimage>''" ng-src="{{floorimage}}"></p>
+			<p id="floorimage"></p> <!-- <img ng-if="floorimage>''" ng-src="{{floorimage}}"> -->
 			<p></p>
 			<!-- <pre id="console"></pre> -->
 		</article>

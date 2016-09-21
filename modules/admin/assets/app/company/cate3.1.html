@@ -27,10 +27,10 @@
 			<span>注册资金（万元）</span> <input type="text" class="txtS" data-ng-model="companyregcapital">
 		</article>
 		<article class="txtIn">
-			<span>注册法人</span> <input type="text" class="txtS" data-ng-model="injectionname"> <em>*</em>
+			<span>注册法人(负责人)</span> <input type="text" class="txtS" data-ng-model="injectionname"> <em>*</em>
 		</article>
 		<article class="txtIn">
-			<span>法人身份证号</span> <input type="text" class="txtS" data-ng-model="injectionpeoplecode"> <em>*</em>
+			<span>法人身份证号</span> <input type="text" class="txtS" data-ng-model="injectionpeoplecode"> <!-- <em>*</em> -->
 		</article>
 		<article class="txtIn">
 			<span>单位性质</span> <input type="text" class="txtS" data-ng-model="companynature"> <em>*</em>
@@ -38,7 +38,7 @@
 		<article class="txtIn">
 			<span>企业注册号</span> <input type="text" class="txtS" data-ng-model="companyregnum">
 		</article>
-		<article class="txtIn">
+		<article class="txtIn" style="display:none">
 			<span>五证合一号</span> <input type="text" class="txtS" data-ng-model="companymergenum">
 		</article>
 		<article class="txtIn">
@@ -84,6 +84,9 @@
 			<select class="txtSelect" data-ng-model="companyinvestment">  
 				 <option value = "1" selected="selected">外资</option>  
 				 <option value = "2">内资</option>
+				 <option value = "3">合资</option>
+				 <option value = "4">其它</option>
+				 <option value = "5">无</option>
 			</select>
 			<!-- <form>
 				<span>招商引资</span>
@@ -97,28 +100,28 @@
 	<div class="qiye">
 		<h3>企业人事</h3>
 		<article class="txtIn">
-			<span>法人姓名</span> <input type="text" class="txtS" data-ng-model="injectionname"> <em>*</em>
+			<span>法人姓名(负责人)</span> <input type="text" class="txtS" data-ng-model="injectionname"> <em>*</em>
 		</article>
 		<article class="txtIn">
-			<span>法人联系电话</span> <input type="text" class="txtS" data-ng-model="injectionphone"> <em>*</em>
+			<span>法人联系电话</span> <input type="text" class="txtS" data-ng-model="injectionphone"> <!-- <em>*</em> -->
 		</article>
 		<article class="txtIn">
 			<span>法人传真</span> <input type="text" class="txtS" data-ng-model="injectiontax">
 		</article>
 		<article class="txtIn">
-			<span>行政负责人</span> <input type="text" class="txtS" data-ng-model="managername"> <em>*</em>
+			<span>行政负责人</span> <input type="text" class="txtS" data-ng-model="managername"> <!-- <em>*</em> -->
 		</article>
 		<article class="txtIn">
-			<span>行政联系电话</span> <input type="text" class="txtS" data-ng-model="managerphone"> <em>*</em>
+			<span>行政联系电话</span> <input type="text" class="txtS" data-ng-model="managerphone"> <!-- <em>*</em> -->
 		</article>
 		<article class="txtIn">
 			<span>行政QQ</span> <input type="text" class="txtS" data-ng-model="managerqq">
 		</article>
 		<article class="txtIn">
-			<span>财务姓名</span> <input type="text" class="txtS" data-ng-model="financername"> <em>*</em>
+			<span>财务姓名</span> <input type="text" class="txtS" data-ng-model="financername"> <!-- <em>*</em> -->
 		</article>
 		<article class="txtIn">
-			<span>财务联系电话</span> <input type="text" class="txtS" data-ng-model="financerphone"> <em>*</em>
+			<span>财务联系电话</span> <input type="text" class="txtS" data-ng-model="financerphone"> <!-- <em>*</em> -->
 		</article>
 		<article class="txtIn">
 			<span>财务QQ</span> <input type="text" class="txtS" data-ng-model="financerqq">

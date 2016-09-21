@@ -30,10 +30,10 @@ $this->title = "修改文章页";
 	</article>
 	<article class="txtIn">
 		<span>所属社区</span>
-		<select class="txtSelect" data-ng-model="Post.CommunityID">  
+		<select class="txtSelect" id="selCommunity" data-ng-model="Post.CommunityID">  
 			<option value="" selected="selected">请选择</option>
 			<option data-ng-repeat="item in communityItems" value="{{item.content[0]}}">{{item.content[1]}}</option>
-		</select>
+		</select>	
 	</article>
 	<article class="txtIn">
 		<span>标题</span>

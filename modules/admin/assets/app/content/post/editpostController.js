@@ -42,7 +42,10 @@ angular.module('blogAdmin').controller('EditPostController', ["$rootScope", "$sc
         .success(function (data) {
         	angular.copy(data, $scope.Post);
             UE.getEditor('editor').setContent($scope.Post.PostContent);
-			
+			//设置选择 社区
+            //console.log($scope.Post.CommunityID);
+            //$("#selCommunity").find("option[value='"+$scope.Post.CommunityID+"']").attr("selected",true);
+            
 			// check post categories in the list
             /*if ($scope.Post.Categories != null) {
                 for (var i = 0; i < $scope.Post.Categories.length; i++) {

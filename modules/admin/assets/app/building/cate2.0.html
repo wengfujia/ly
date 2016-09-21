@@ -30,13 +30,13 @@
 					</article>
 				
 					<article class="txtIn">
-						<span >开发商名称</span> <input type="text" class="txtS" data-ng-disabled="!isEditItem" data-ng-model="developcompany"> <em>*</em>
+						<span >开发商名称</span> <input type="text" class="txtS" data-ng-disabled="!isEditItem" data-ng-model="developcompany"> <!--<em>*</em> -->
 					</article>
 					<article class="txtIn">
-						<span >开发商联系人</span> <input type="text" class="txtS" data-ng-disabled="!isEditItem" data-ng-model="developname"> <em>*</em>
+						<span >开发商联系人</span> <input type="text" class="txtS" data-ng-disabled="!isEditItem" data-ng-model="developname"> <!--<em>*</em> -->
 					</article>
 					<article class="txtIn">
-						<span >开发商联系电话</span> <input type="text" class="txtS" data-ng-disabled="!isEditItem" data-ng-model="developphone"> <em>*</em>
+						<span >开发商联系电话</span> <input type="text" class="txtS" data-ng-disabled="!isEditItem" data-ng-model="developphone"> <!--<em>*</em> -->
 					</article>
 				
 					<article class="txtIn">
@@ -65,7 +65,7 @@
 						<a class="btn" id="floorfiles">上传图片</a> 最大500KB，支持jpg，gif，png格式
 					</article>
 					<article class="imgArea" id="floorcontainer">		
-						<p id="floorimage"><img ng-if="floorimage>''" ng-src="{{floorimage}}"></p>
+						<p id="floorimage"></p> <!-- <img ng-if="floorimage>''" ng-src="{{floorimage}}"> -->
 						<p></p>
 						<!-- <pre id="console"></pre> -->
 					</article>
@@ -73,10 +73,10 @@
 		
 					<article class="txtIn">
 						<span >装修方式</span>
-						<select class="txtSelect" data-ng-disabled="!isEditItem" data-ng-model="renovation">  
-							 <option value = "0" selected="selected">请选择</option>  
-							 <option value = "1">精装</option>  
-							 <option value = "2">简装</option>  
+						<select class="txtSelect" data-ng-disabled="!isEditItem" data-ng-model="renovation">
+							 <option value = "0" selected="selected">请选择</option>
+							 <option value = "1">精装</option>
+							 <option value = "2">简装</option>
 							 <option value = "3">毛坯</option>
 						</select>
 					</article>
