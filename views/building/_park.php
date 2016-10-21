@@ -2,7 +2,6 @@
 
 use yii\helpers\Url;
 use yii\widgets\LinkPager;
-
 ?>
 
 <h5 class='clr'>园区资源
@@ -17,11 +16,13 @@ use yii\widgets\LinkPager;
 $i = 1;
 $parks = $parkProvider->getModels();
 foreach ($parks as $park) {
+	if (!isset($park->coverimage)) continue; //没有图片就不显示
+	
 	if ($i == 1) {
-		echo '<li style="margin-left: 0"><a href="'.$park->url.'"><img src="'.$park.coverimage.'"></a><h4><a href="'.$park->url.'">'.$park->Title.'</a></h4></li>';
+		echo '<li style="margin-left: 0"><a href="'.$park->url.'"><img src="'.$park->coverimage.'"></a><h4><a href="'.$park->url.'">'.$park->Title.'</a></h4></li>';
 	}
 	else {
-		echo '<li><a href="'.$park->url.'"><img src="'.$park.coverimage.'"></a><h4><a href="'.$park->url.'">'.$park->Title.'</a></h4></li>';
+		echo '<li><a href="'.$park->url.'"><img src="'.$park->coverimage.'"></a><h4><a href="'.$park->url.'">'.$park->Title.'</a></h4></li>';
 	}
 	if ($i == 4) {
 		$i = 0;

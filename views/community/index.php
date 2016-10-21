@@ -27,7 +27,13 @@ else if (strpos($community[1], '金城')!== false)
 			<div id="SQmyFocus">
 				<div class="pic">
 					<ul>
-						<li><a href=""><img src="<?= Url::base().$community[8] ?>" thumb="" alt="<?= $community[1] ?>" text="<?= $community[1] ?>" /></a></li>
+						<?php 
+							$cposts = Post::getPostsByCommunity('滚动新闻', $community[0]);
+							foreach ( $cposts as $post ) {
+								echo '<li><a href="' . $post->url . '"><img src="' . $post->coverimage . '" thumb="" alt="' . $post->Title . '" text="' . $post->Title . '" /></a></li>';
+							}
+						?>
+						<!-- <li><a href=""><img src="<?= Url::base().$community[8] ?>" thumb="" alt="<?= $community[1] ?>" text="<?= $community[1] ?>" /></a></li> -->
 					</ul>
 				</div>
           	</div>
@@ -46,9 +52,9 @@ else if (strpos($community[1], '金城')!== false)
 		<div class="shequInfo">
 			<div class="title"><img src="<?= Url::base() ?>/css/img/shequInfo.png"></div>
 			<div class="infoCon"><?= $community[7] ?></div>
-			<a href="#"><img src="<?= Url::base() ?>/css/img/service1.png" class="serviceIcons"></a>
-			<a href="#"><img src="<?= Url::base() ?>/css/img/service2.png" class="serviceIcons"></a>
-			<a href="#"><img src="<?= Url::base() ?>/css/img/service3.png" class="serviceIcons"></a>
+			<a href="http://www.bglyjj.com/post/view?id=78c118d8-e8b4-3b02-a770-82bc8b196042"><img src="<?= Url::base() ?>/css/img/service1.png" class="serviceIcons"></a>
+			<a href="http://www.bglyjj.com/post/view?id=54ca7486-675f-3d68-b3d8-6d06948cb60e"><img src="<?= Url::base() ?>/css/img/service2.png" class="serviceIcons"></a>
+			<a href="http://www.bglyjj.com/post/view?id=ebfd2cb9-ef0d-3209-baa3-8688e800c953"><img src="<?= Url::base() ?>/css/img/service3.png" class="serviceIcons"></a>
 		</div>
 	</div>
 
@@ -85,7 +91,7 @@ else if (strpos($community[1], '金城')!== false)
 
 	<div class="title"><a href="#"><img src="<?= Url::base() ?>/css/img/<?=$css ?>/b2.png"></a></div>
 	<div class="shequCity">
-		<a href=""><img src="<?= Url::base() ?>/css/img/demo.gif"></a>
+		<a href=""><img src="<?= Url::base() ?>/css/img/<?=$css ?>/banner.jpg"></a>
 	</div>
 
 	<div class="shequContact">

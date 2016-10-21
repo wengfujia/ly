@@ -17,11 +17,13 @@ use yii\widgets\LinkPager;
 $i = 1;
 $companies = $companyProvider->getModels();
 foreach ($companies as $company) {
+	if (!isset($company->coverimage)) continue;
+	
 	if ($i == 1) {
-		echo '<li style="margin-left: 0"><a href="'.$company->url.'"><img src="'.$company.coverimage.'"></a><h4><a href="'.$company->url.'">'.$company->Title.'</a></h4></li>';
+		echo '<li style="margin-left: 0"><a href="'.$company->url.'"><img src="'.$company->coverimage.'"></a><h4><a href="'.$company->url.'">'.$company->Title.'</a></h4></li>';
 	}
 	else {
-		echo '<li><a href="'.$company->url.'"><img src="'.$company.coverimage.'"></a><h4><a href="'.$company->url.'">'.$company->Title.'</a></h4></li>';
+		echo '<li><a href="'.$company->url.'"><img src="'.$company->coverimage.'"></a><h4><a href="'.$company->url.'">'.$company->Title.'</a></h4></li>';
 	}
 	if ($i == 4) {
 		$i = 0;

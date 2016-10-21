@@ -35,13 +35,14 @@ use Faker\Provider\Uuid;
  * @property array $availableStatus 支持的文章状态
  * @property string $postStatus 文章状态
  * @property string $url 访问地址
+ * @property string $coverimage 缩略图
  * @property string $postCategory 文章分类
  *
  * #relations
  * @property User $profile 作者资料
  * @property Category $category 分类
- * @property Comment[] $comments 评论s
- * @property Comment[] $allComments 全部评论s
+ * @property Comment[] $comments 评论
+ * @property Comment[] $allComments 全部评论
  * @property Tag[] $postTags 标签s
  */
 
@@ -69,7 +70,7 @@ class Post extends BaseModel
     public function scenarios()
     {
         $scenarios = parent::scenarios();
-        $scenarios[self::SCENARIO_EDIT] = ['CommunityID', 'Author', 'Title', 'PostContent', 'Description'];
+        $scenarios[self::SCENARIO_EDIT] = ['CommunityID', 'Author', 'Title', 'PostContent', 'Description', 'OutUrl'];
         $scenarios[self::SCENARIO_MANAGE] = $scenarios[self::SCENARIO_EDIT] + ['DateCreated'];
         return $scenarios;
     }
@@ -87,7 +88,7 @@ class Post extends BaseModel
         	[['Title', 'Slug'], 'string', 'max' => 255],
         	[['Author'], 'string', 'max' => 50],
         	[['Writer', 'Editor', 'CopyFrom'], 'string', 'max' => 20],
-        	[['OutUrl'], 'string', 'max' => 200],
+        	[['OutUrl'], 'string', 'max' => 400],
         	//[['Status'], 'default', 'value' => self::STATUS_PUBLISHED],
         	//[['Status'], 'in', 'range' => array_keys(self::getAvailableStatus()), 'message' => '文章的「状态」错误！'],
         	[['IsCommentEnabled'], 'default', 'value' => 1]
@@ -198,6 +199,28 @@ class Post extends BaseModel
         	->limit($_limit)->all();
     }
 
+    /*
+     * 根据分类名称与社区号获取文章列表
+     * $_categoryName:分类名称
+     * $_communityId：社区序号
+     * $_limit：获取记录数
+     * */
+    public static function getPostsByCommunity($_categoryName, $_communityId, $_limit=null)
+    {
+    	//查找分类
+    	$category = Category::findOne(['CategoryName'=>$_categoryName]);
+    	if (!isset($category))
+    		return [];
+    
+    	//先查找postcategory表
+    	$subQuery = Postcategory::find()->select('PostID')->where(['CategoryID' => $category->CategoryID]);
+    
+    	return self::find()
+	    	->where(['in', 'PostID', $subQuery])->andWhere(['CommunityID'=>$_communityId, 'Status'=>Post::STATUS_PUBLISHED])
+	    	->orderBy(['DateCreated' => SORT_DESC])
+	    	->limit($_limit)->all();
+    }
+    
     /**
      * 获取文章访问的URL
      * @param bool $schema

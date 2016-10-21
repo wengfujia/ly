@@ -95,6 +95,7 @@ function SiteInit(rootScope, scope,dataService) {
 		dataService.getItems('wap/post/search', p)
             .success(function (data) {
             	angular.copy(data, scope.posts);
+            	console.log(scope.posts);
             })
             .error(function () {
                 toastr.error('获取文章列表失败');
@@ -118,4 +119,27 @@ function SiteInit(rootScope, scope,dataService) {
         .error(function () { toastr.error('上传出错'); });
     }
     
+	//正规取图片
+	scope.getImageSrc = function (html) {
+		//匹配图片（g表示匹配所有结果i表示区分大小写）
+		var imgReg = /<img.*?(?:>|\/>)/gi;
+		//匹配src属性
+		var srcReg = /src=[\'\"]?([^\'\"]*)[\'\"]?/i;
+		var arr = html.match(imgReg);
+		for (var i = 0; i < arr.length; i++) {
+			var src = arr[i].match(srcReg);
+			//获取图片地址
+			return src[1];
+			
+			/*if(src[1]){
+				alert('已匹配的图片地址'+(i+1)+'：'+src[1]);
+			}
+			//当然你也可以替换src属性
+			if (src[0]) {
+				var t = src[0].replace(/src/i, "href");
+				//alert(t);
+			}*/
+		}
+		return '';
+	}
 }

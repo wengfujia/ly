@@ -1,7 +1,11 @@
 <div class="cms" data-ng-controller="PostController">
-	<h2 class="catName">内容列表&nbsp&nbsp&nbsp&nbsp<a href="/admin/content/editpost" class="roomAdd">新建</a></h2>
+	<h2 class="catName">内容列表&nbsp&nbsp&nbsp&nbsp<a href="/admin/content/editpost" class="roomAdd">新建</a></h2><br />
 
 	<div class="shequ-info">
+		<div>
+			<input type="text" class="txtS ng-pristine ng-valid" data-ng-model="searchTxt">
+			<input type="button" class="btn btn-success" title="查询" value="查询" data-ng-click="loadsearch()">
+		</div>
 		<table>
 			<tr>
 				<th>标题</th>

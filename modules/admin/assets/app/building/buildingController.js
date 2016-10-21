@@ -156,7 +156,7 @@ angular.module('blogAdmin').controller('BuildingController', ["$rootScope", "$sc
 		//楼层结构图
 		initCoverImageUploader("floorfiles","floorcontainer","1mb","/file/upload",'',callFloorimage);
 		//楼宇图片
-		initCoverImageUploader("buildingfiles","buildingcontainer","1mb","/file/upload",'',callBuildingphoto);		
+		initCoverImageUploader("buildingfiles","buildingcontainer","1mb","/file/upload",'',callBuildingphoto);
 	});
 	
 	//统计楼宇楼层入驻情况
@@ -574,6 +574,9 @@ angular.module('blogAdmin').controller('BuildingController', ["$rootScope", "$sc
 		}
 		else if (status == 3) {
 			return '出租';
+		}
+		else if (status == 4) {
+			return '已入驻';
 		}
 		else return '未知';
 	}

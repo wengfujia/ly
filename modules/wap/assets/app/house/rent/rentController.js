@@ -17,7 +17,7 @@ angular.module('blogAdmin').controller('RentController', ["$rootScope", "$scope"
 	$scope.load = function () {
 		//计算是否还有数据
 		$left = $scope.recordCount - $scope.currentPage*5;
-		if ($left<=0) {
+		if ($left<=0 && $scope.recordCount>0) {
 			$('#overing').show();
 			$('#loading').hide();
 			return;
@@ -25,12 +25,12 @@ angular.module('blogAdmin').controller('RentController', ["$rootScope", "$scope"
 		
 		var p = { username: 'guest', body: '\t'+ $scope.orderBy+'\t'+$scope.recordCount+'\t'+$scope.currentPage+'\t5' };
         dataService.getItems('admin/rent/list', p)
-            .success(function (data) {
+            .success(function (data) {            	
             	if (data.result == 0) {
             		$scope.setPagedItems(data);
             		//添加记录集
-            		for (var i = 0; i < pagedItems.length; i++) {
-                        $scope.items.push(pagedItems[i]);
+            		for (var i = 0; i < $scope.pagedItems.length; i++) {
+                        $scope.items.push($scope.pagedItems[i]);
                     }
                     $scope.recordCount++; //页号增加
                     $('#loading').hide();

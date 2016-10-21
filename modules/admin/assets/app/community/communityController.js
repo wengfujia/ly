@@ -8,6 +8,7 @@ angular.module('blogAdmin').controller('CommunityController', ["$rootScope", "$s
 	//社区信息字段
 	$scope.name = '';
 	$scope.code = '';
+	$scope.sortnum = 0;
 	$scope.linkname = '';
 	$scope.linkphone = '';
 	$scope.mobile = '';
@@ -62,6 +63,7 @@ angular.module('blogAdmin').controller('CommunityController', ["$rootScope", "$s
                 	$scope.address = data.data[0].content[6];
                 	$scope.desc = data.data[0].content[7];
                 	$scope.photopath = data.data[0].content[8];
+                	$scope.sortnum = data.data[0].content[9];
             	}
             	else if (data.data) {
             		toastr.error('获取社区详情出错,原因：' + data.data[0].content[0]);
@@ -114,7 +116,7 @@ angular.module('blogAdmin').controller('CommunityController', ["$rootScope", "$s
 		{
 			username: session.getItem("uername"), 
 			body: $scope.id+'\t'+$scope.name+'\t'+$scope.code+'\t'+$scope.linkname+'\t'+$scope.linkphone+'\t'+
-					$scope.mobile+'\t'+$scope.address+'\t'+$scope.desc+'\t'+$scope.photopath
+					$scope.mobile+'\t'+$scope.address+'\t'+$scope.desc+'\t'+$scope.photopath+'\t'+$scope.sortnum
 		};
         dataService.getItems('admin/community/save', p)
             .success(function (data) {

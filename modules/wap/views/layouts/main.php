@@ -39,7 +39,7 @@ $app = AppAsset::register($this);
 		<ul class="clr">
 			<li><a href="#/house/rent/list">楼宇资源</a></li>
 			<li><a href="#/content/post/list#/&category=楼宇社区">楼宇社区</a></li>
-			<li><a href="#/building/list">楼宇服务</a></li>
+			<li><a href="#/content/post/list#/&category=楼宇服务">楼宇服务</a></li> <!-- /building/list -->
 			<li><a href="#/content/post/list#/&category=楼宇企业">楼宇企业</a></li>
 			<li><a href="#/content/post/list#/&category=招聘信息">楼宇招聘</a></li>
 			<li><a href="#/content/post/list#/&category=公告">楼宇公告</a></li>

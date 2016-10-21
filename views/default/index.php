@@ -21,7 +21,7 @@ $buildings = $coder->getContent();
 		</div>
 		<ul>
 			<?php
-			$posts = Post::getPostsByCategoryName('公告', 5, 0);
+			$posts = Post::getPostsByCategoryName('公告', 4, 0);
 			foreach ( $posts as $post ) {
 				echo '<li><a href="' . $post->url . '">' . $post->Title . '</a></li>';
 			}
@@ -36,7 +36,7 @@ $buildings = $coder->getContent();
 		</div>
 		<ul>
 			<?php
-			$posts = Post::getPostsByCategoryName ('政策法规', 5, 0);
+			$posts = Post::getPostsByCategoryName ('政策法规', 4, 0);
 			foreach ( $posts as $post ) {
 				echo '<li><a href="' . $post->url . '">' . $post->Title . '</a></li>';
 			}
@@ -67,7 +67,7 @@ $buildings = $coder->getContent();
 	</div>
 	<ul>
 		<?php
-		$posts = Post::getPostsByCategoryName ('楼宇动态', 10, 0);
+		$posts = Post::getPostsByCategoryName ('楼宇动态', 7, 0);
 		foreach ( $posts as $post ) {
 			echo '<li><a href="' . $post->url . '">' . $post->Title . '</a></li>';
 		}
@@ -77,7 +77,7 @@ $buildings = $coder->getContent();
 
 <div class="clear"></div>
 
-<div class="banner"><a href="#"><img src="css/img/banner.png"></a></div>
+<div class="banner"><a href="guide/index"><img src="css/img/banner.png"></a></div>
 
 <div class="lyShow">
 	<div class="title clr">
@@ -110,20 +110,20 @@ jQuery(".picMarquee-left").slide( { mainCell:".bd ul",autoPlay:true,effect:"left
 		<a href="<?= Url::to(['/post/list', 'title' => '便民服务']); ?>" class="more"><img src="<?= Url::base() ?>/css/img/more.png"></a>
 	</div>
 	<ul class="clr">
-		<li><a href="#">萧山地图</a></li>
-		<li><a href="#">天气预报</a></li>
-		<li><a href="#">公交线路</a></li>
-		<li><a href="#">社会保险</a></li>
-		<li><a href="#">常用号码</a></li>
-		<li><a href="#">停水公告</a></li>
-		<li><a href="#">浙江福利</a></li>
-		<li><a href="#">浙江体彩</a></li>
-		<li><a href="#">民航航班</a></li>
-		<li><a href="#">邮编查询</a></li>
-		<li><a href="#">快递查询</a></li>
-		<li><a href="#">违章查询</a></li>
-		<li><a href="#">婚姻登记</a></li>
-		<li><a href="#">万年日历</a></li>
+		<li><a href="http://map.baidu.com/?newmap=1&s=s%26wd%3D萧山地图%26c%3D2489&fr=alat0&from=alamap">萧山地图</a></li>
+		<li><a href="http://www.weather.com.cn/html/weather/101210102.shtml">天气预报</a></li>
+		<li><a href="http://www.xsbus.com/bus.asp">公交线路</a></li>
+		<li><a href="http://www.ldbz.xs.zj.cn/xslss/wsbs/login.jsp">社会保险</a></li>
+		<li><a href="http://tool.114la.com/live/phone/">常用号码</a></li>
+		<li><a href="http://www.xswater.com/">停水公告</a></li>
+		<li><a href="http://fc.zjol.com.cn/">浙江福彩</a></li>
+		<li><a href="http://www.zjlottery.com/">浙江体彩</a></li>
+		<li><a href="http://flight.qunar.com/status/alphlet_order.jsp?ex_track=bd_aladding_flightsk_title">民航航班</a></li>
+		<li><a href="http://www.chinapost.com.cn/">邮编查询</a></li>
+		<li><a href="http://kuaidichaxun.51240.com/">快递查询</a></li>
+		<li><a href="http://chaxun.weizhang8.cn/">违章查询</a></li>
+		<li><a href="http://220.191.210.68/hyyy/">婚姻登记</a></li>
+		<li><a href="http://www.hao123.com/rili">万年日历</a></li>
 	</ul>
 </div>
 <div class="lySource tabBlock">
@@ -135,10 +135,11 @@ jQuery(".picMarquee-left").slide( { mainCell:".bd ul",autoPlay:true,effect:"left
 		<table>
 			<tr style="height: 38px">
 				<th>楼宇名称</th>
-				<th>层数</th>
+				<th>所在楼层</th>
 				<th>面积</th>
-				<th>租金</th>
-				<th>物业费</th>
+				<th>租金(平方/天/元)</th>
+				<th>物业费(平方/月)</th>
+				<th>联系电话</th>
 			</tr>
 			<?php
 			$coder = httpServices::post(COMMANDID::$RENTLIST, 'guest', '		0	1	8');
@@ -155,6 +156,7 @@ jQuery(".picMarquee-left").slide( { mainCell:".bd ul",autoPlay:true,effect:"left
 						'<td>'.$content[4].'</td>'.
 						'<td>'.$content[5].'</td>'.
 						'<td>'.$content[6].'</td>'.
+						'<td>'.$content[7].'</td>'.
 					'</tr>';
 			}
 			?>
@@ -165,10 +167,11 @@ jQuery(".picMarquee-left").slide( { mainCell:".bd ul",autoPlay:true,effect:"left
 		<table>
 			<tr style="height: 38px">
 				<th>楼宇名称</th>
-				<th>层数</th>
+				<th>所在楼层</th>
 				<th>面积</th>
-				<th>售价</th>
-				<th>物业费</th>
+				<th>售价(平方/元)</th>
+				<th>物业费(平方/月)</th>
+				<th>联系电话</th>
 			</tr>
 			<?php 
 			$coder = httpServices::post(COMMANDID::$SELLLIST, 'guest', '		0	1	8');
@@ -185,6 +188,7 @@ jQuery(".picMarquee-left").slide( { mainCell:".bd ul",autoPlay:true,effect:"left
 						'<td>'.$content[4].'</td>'.
 						'<td>'.$content[5].'</td>'.
 						'<td>'.$content[6].'</td>'.
+						'<td>'.$content[7].'</td>'.
 					'</tr>';
 			}
 			?>
@@ -200,7 +204,7 @@ jQuery(".picMarquee-left").slide( { mainCell:".bd ul",autoPlay:true,effect:"left
 	</div>
 	<ul class="clr">
 		<?php 
-		$coder = httpServices::post(COMMANDID::$COMMUNITYPHOTOLIST, 'guest', '		');
+		$coder = httpServices::post(COMMANDID::$COMMUNITYPHOTOLIST, 'guest', '	a.SortNum');
 		
 		$items_array = $coder->getContent();
 		foreach ($items_array as $content) {
@@ -237,7 +241,7 @@ jQuery(".picMarquee-left").slide( { mainCell:".bd ul",autoPlay:true,effect:"left
 		<a href="<?= Url::to(['/post/list', 'title' => '上市企业']); ?>" class="more"><img src="<?= Url::base() ?>/css/img/more.png"></a>
 	</div>
 	<div class="searchCorp">
-		<?php $form = ActiveForm::begin(['action' => ['post/list', 'title'=>'入驻企业'],'method' => 'post' ]); ?>
+		<?php $form = ActiveForm::begin(['action' => ['company/index'],'method' => 'post' ]); ?>
 			<input type="text" id='keyword' name='keyword' placeholder="请输入关键字">
 			<button type="submit"><img src="css/img/search.png"></button>
 		<?php ActiveForm::end(); ?>
@@ -251,7 +255,7 @@ jQuery(".picMarquee-left").slide( { mainCell:".bd ul",autoPlay:true,effect:"left
 	</div>
 	<ul>
 		<?php
-		$posts = Post::getPostsByCategoryName ('招聘信息', 10, 0);
+		$posts = Post::getPostsByCategoryName ('招聘信息', 9, 0);
 		foreach ( $posts as $post ) {
 			echo '<li><a href="' . $post->url . '">' . $post->Title . '</a></li>';
 		}

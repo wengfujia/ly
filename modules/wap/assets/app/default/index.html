@@ -2,7 +2,7 @@
 	<div class="slider-outer">
 		<ul class="slider-wrap">
 			<li data-ng-repeat="post in posts">
-				<a><img src="{{post.coverimage}}"><span>{{post.Title}}</span><b></b></a>
+				<a><img src="{{getImageSrc(post.PostContent)}}"><span>{{post.Title}}</span><b></b></a>
 			</li>
 		</ul>
 	</div>
@@ -26,7 +26,7 @@
 <div class="main clr" data-ng-controller="IndexController">
     
     <article class="list-1 clr" data-ng-repeat="post in posts">
-    	<a href="#"><img src="{{post.coverimage}}"></a>
+    	<a href="#"><img src="{{getImageSrc(post.PostContent)}}"></a>
     	<h2><a href="#/content/post/show?id={{post.PostID}}">{{post.Title}}</a></h2>
         <span class="fromm">楼宇动态</span>
     </article>

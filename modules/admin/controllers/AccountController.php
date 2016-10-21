@@ -133,7 +133,8 @@ class AccountController extends Controller
     	$user->community_id = $communityid;
     	if ($user->save()) {
     		return json_encode($communityid);
-    	} else {
+    	} 
+    	else {
     		return json_encode($user->errors);
     	}
     }

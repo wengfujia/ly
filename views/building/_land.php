@@ -17,11 +17,13 @@ use yii\widgets\LinkPager;
 $i = 1;
 $lands = $landProvider->getModels();
 foreach ($lands as $land) {
+	if (!isset($land->coverimage)) continue;
+	
 	if ($i == 1) {
-		echo '<li style="margin-left: 0"><a href="'.$land->url.'"><img src="'.$land.coverimage.'"></a><h4><a href="'.$land->url.'">'.$land->Title.'</a></h4></li>';
+		echo '<li style="margin-left: 0"><a href="'.$land->url.'"><img src="'.$land->coverimage.'"></a><h4><a href="'.$land->url.'">'.$land->Title.'</a></h4></li>';
 	}
 	else {
-		echo '<li><a href="'.$land->url.'"><img src="'.$land.coverimage.'"></a><h4><a href="'.$land->url.'">'.$land->Title.'</a></h4></li>';
+		echo '<li><a href="'.$land->url.'"><img src="'.$land->coverimage.'"></a><h4><a href="'.$land->url.'">'.$land->Title.'</a></h4></li>';
 	}
 	if ($i == 4) {
 		$i = 0;

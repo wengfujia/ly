@@ -8,7 +8,7 @@ $coder = httpServices::post(COMMANDID::$RESOURCENAMELIST, 'guest', '1');
 $names = $coder->getContent();
 ?>
 
-<?php $form = ActiveForm::begin(['action' => ['house/search', 'commandid'=>COMMANDID::$RENTLIST],'method' => 'post' ]); ?>
+<?php $form = ActiveForm::begin(['action' => ['house/search'],'method' => 'post' ]); ?> <!-- , 'commandid'=>COMMANDID::$RENTLIST -->
 
 <div class="selectInfo">
 	<!-- 楼宇名称 -->
@@ -59,7 +59,11 @@ $names = $coder->getContent();
 		<option value="3">4000至6000元</option>
 		<option value="4">6000元以上</option>
 	</select>
-	<button title="查询">查询</button>
+	<select class="txtSelect" id="type" name="type">
+		<option value="4000" selected="selected">出租</option>
+		<option value="4001">出售</option>
+	</select>
+	<button title="查询" style="background: none;border: none;padding: 0;line-height: 24px;padding-left: 10px;"><img src="/css/img/search.png"></button> <!-- class="txtSelect" style="width:120px"  -->
 </div>
 
 <?php ActiveForm::end(); ?>

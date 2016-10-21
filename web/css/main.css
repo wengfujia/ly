@@ -443,7 +443,7 @@ a.more {
   _display: inline;
 }
 .main .zpInfo {
-  height: 250px;
+  /*height: 250px;*/
   width: 758px;
   border: 1px solid #afc7f6;
   overflow: hidden;

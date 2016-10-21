@@ -42,6 +42,7 @@ angular.module('blogAdmin').controller('EditPostController', ["$rootScope", "$sc
         .success(function (data) {
         	angular.copy(data, $scope.Post);
             UE.getEditor('editor').setContent($scope.Post.PostContent);
+            console.log($scope.Post);
 			//设置选择 社区
             //console.log($scope.Post.CommunityID);
             //$("#selCommunity").find("option[value='"+$scope.Post.CommunityID+"']").attr("selected",true);
@@ -104,6 +105,7 @@ angular.module('blogAdmin').controller('EditPostController', ["$rootScope", "$sc
             return false;
         }
         $scope.Post.Categories = $scope.Post.Categories.substring(1);
+        console.log($scope.Post.Categories);
         
         if ($scope.Post.PostID) {
             dataService.addItem('admin/post/update?id='+ $scope.Post.PostID, $scope.Post)

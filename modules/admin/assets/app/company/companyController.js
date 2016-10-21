@@ -218,7 +218,7 @@ angular.module('blogAdmin').controller('CompanyController', ["$rootScope", "$sco
 		var buildingName = $("#selbuilding").find("option:selected").text();
 		var floorName = $("#selfloor").find("option:selected").text();
 		var roomName = $("#selroom").find("option:selected").text();
-		$scope.roomaddress = communityName+buildingName+floorName+roomName;
+		$scope.roomaddress = communityName+buildingName+'-'+floorName+'-'+roomName;
 
 		var p = 
 		{

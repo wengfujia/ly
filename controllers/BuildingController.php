@@ -82,7 +82,7 @@ class BuildingController extends BaseController
     	//获取地块新闻
     	$landProvider = new ActiveDataProvider([
     	    'query' => Post::find()
-    	    	->select('PostID,Title,DateCreated')
+    	    	->select('PostID,Title,PostContent,DateCreated')
     			->where(['in', 'PostID', $subQuery])->andWhere(['Status' => Post::STATUS_PUBLISHED])
     			->orderBy(['DateCreated' => SORT_DESC]),
     	    'pagination' => ['defaultPageSize' => 16]
@@ -93,18 +93,18 @@ class BuildingController extends BaseController
     	//获取园区新闻
     	$parkProvider = new ActiveDataProvider([
     	    'query' => Post::find()
-    	    	->select('PostID,Title,DateCreated')
+    	    	->select('PostID,Title,PostContent,DateCreated')
     			->where(['in', 'PostID', $subQuery])->andWhere(['Status' => Post::STATUS_PUBLISHED])
     			->orderBy(['DateCreated' => SORT_DESC]),
     	    'pagination' => ['defaultPageSize' => 16]
     	]);
-    	
+
     	$category = Category::findOne(['CategoryName'=>'企业资源']);
     	$subQuery = Postcategory::find()->select('PostID')->where(['CategoryID' => $category->CategoryID]);
     	//获取企业新闻
     	$companyProvider = new ActiveDataProvider([
     	    'query' => Post::find()
-    	    	->select('PostID,Title,DateCreated')
+    	    	->select('PostID,Title,PostContent,DateCreated')
     			->where(['in', 'PostID', $subQuery])->andWhere(['Status' => Post::STATUS_PUBLISHED])
     			->orderBy(['DateCreated' => SORT_DESC]),
     	    'pagination' => ['defaultPageSize' => 16]

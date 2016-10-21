@@ -101,9 +101,9 @@ class HouseController extends BaseController
     }
     
     /*
-     * 查找出租房源信息
+     * 查找出租/出售房源信息
      * */
-    public function actionSearch($commandid)
+    public function actionSearch()
     {
     	$condition = '';
     	//获取查询条件
@@ -172,21 +172,33 @@ class HouseController extends BaseController
 		if (substr($condition, 0, 4) == ' and') {
 			$condition=substr($condition, 5, strlen($condition)-4);
 		}
-    	
+		
+		//获取业务标识号
+		$commandid=$data['type'];
+		//获取查询
     	$coder = httpServices::post($commandid, 'guest', $condition.'		0	1	0');
-    	$rentProvider=new ArrayDataProvider(
-    			[
-    					'allModels' => $coder->getContent(),
-    					'pagination' => [
-    							'pageSize' => 16,
-    					]
+    	$provider=new ArrayDataProvider(
+    		[
+    			'allModels' => $coder->getContent(),
+    			'pagination' => [
+    				'pageSize' => 16,
     			]
-    			);
-    
-    	//返回视图页
-    	return $this->render('rent', [
-    			'rentProvider' => $rentProvider
-    	] );
+    		]
+    	);
+    	
+    	//
+    	if ($commandid == 4000) { //出租
+    		//返回视图页
+    		return $this->render('rent', [
+    			'rentProvider' => $provider
+    		] );
+    	}
+    	else { //出售
+    		//返回视图页
+    		return $this->render('sale', [
+    			'saleProvider' => $provider
+    		] );
+    	}    	
     }
     
 }

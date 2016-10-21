@@ -37,10 +37,20 @@ class PostController extends Controller
     {
         //获取所有有效的posts
         $models = Post::find()->where(['Status'=>[Post::STATUS_DRAFT,Post::STATUS_PUBLISHED]])
-        	->orderBy(['DateCreated' => SORT_ASC])->asArray()->all();
+        	->orderBy(['DateCreated' => SORT_DESC])->asArray()->all();
         return json_encode($models);
     }
-
+    
+    /*
+     * 根据标题查询
+     * */
+    public function actionSearch($searchTxt)
+    {
+    	$models = Post::find()->where(['Status'=>[Post::STATUS_DRAFT,Post::STATUS_PUBLISHED]])->andWhere(['like', 'Title', $searchTxt])
+    		->orderBy(['DateCreated' => SORT_DESC])->asArray()->all();
+    	return json_encode($models);
+    }
+    
     /**
      * Displays a single Post model.
      * @param integer $id
@@ -53,7 +63,7 @@ class PostController extends Controller
         //组合成分类序号集，用|分隔
         $categories = '';
         foreach ($postCategory as $category) {
-        	$categories = '|'.$category->CategoryID;
+        	$categories = $categories.'|'.$category->CategoryID;
         }
         
         $result = $post->attributes;
@@ -110,9 +120,27 @@ class PostController extends Controller
      */
     public function actionUpdate($id)
     {
+    	$data = Yii::$app->request->post();
+    	if (!isset($data['Categories'])) {
+    		throw new NotFoundHttpException('The requested page does not exist.');
+    	}
+    	
         $model = $this->findModel($id);
         $model->setScenario(Post::SCENARIO_EDIT);
         if ($model->load(Yii::$app->request->post(), '') && $model->save()) {
+        	//更新分类
+        	//删除旧的分类表
+        	Postcategory::deleteAll(['PostID'=>$model->PostID]);
+        	$category_array = explode('|', $data['Categories']);
+        	//保存分类
+        	foreach ($category_array as $catid) {
+        		if (!empty($catid)) {
+        			$cat = new Postcategory();
+        			$cat->CategoryID = $catid;
+        			$cat->PostID = $model->PostID;
+        			$cat->save();
+        		}
+        	}
             return $model->PostID;
         }
 

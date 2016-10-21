@@ -59,6 +59,7 @@ class PostController extends Controller
 		foreach ($models as $model) {
 			array_push($result, $model->attributes);
 		}
+		
     	return json_encode($result);
     }
     

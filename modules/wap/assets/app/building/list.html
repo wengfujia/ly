@@ -1,11 +1,17 @@
-<div class="main clr">
+<div class="main clr" data-ng-controller="BuildingController">
 
-	<article class="top-img clr" data-ng-controller="BuildingController">
+	<!-- <article class="top-img clr" data-ng-controller="BuildingController">
 		<span data-ng-repeat="build in buildings">
         	<a href="#/building/show?id={{build['content'][0]}}"><img src="{{build['content'][2]}}"><p>{{build['content'][1]}}</p><b></b></a>
         </span>        		
+	</article> -->
+	
+	<article class="list-3" data-ng-repeat="build in buildings">
+		<h2>
+			<a href="#/building/show?id={{build['content'][0]}}">{{build['content'][1]}}</a>
+		</h2>
 	</article>
-
+	
 </div>
 <script>
 	$(function(){

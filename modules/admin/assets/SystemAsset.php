@@ -14,6 +14,7 @@ class SystemAsset extends AssetBundle
     public $css = [
         'content/bootstrap.min.css',
         'content/toastr.css',
+    	'content/font-awesome.min.css'
     ];
     public $js = [
         'scripts/jQuery/01-jquery-1.9.1.min.js',
